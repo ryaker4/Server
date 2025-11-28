@@ -6,9 +6,14 @@
 /build/
 
 # CodeLite (или похожие IDE)
+*.codelite
 *.workspace  # Файлы рабочего пространства
+Server.workspace
 *.project    # Файлы проекта
 *.user       # Настройки пользователя/макета
+/Server/*.project
+/Server/*.clangd
+/Server/*.clang-format
 
 # Файлы, создаваемые системами контроля версий (например, vim)
 *~
