@@ -7,6 +7,12 @@
 int main(int argc, char** argv) {
     try {
         ServerInterface iface;
+        // Если запущено без аргументов — показать help и выйти
+        if (argc == 1) {
+            std::cout << iface.getDescription();
+            return 0;
+        }
+
         if (!iface.parse(argc, argv)) {
             std::cout << iface.getDescription();
             return 0;
