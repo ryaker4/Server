@@ -3,13 +3,13 @@
 ## Структура проекта
 .
 ├── main.cpp
-├── serverInterface.cpp / .h      # Обработка параметров командной строки (Boost)
-├── network_server.cpp / .h       # TCP-сервер, обработка клиента, векторы
-├── vector_processor.cpp / .h     # Обработка векторов (сумма)
-├── authdb.cpp / .h               # Журнал базы пользователей
-├── logger.cpp / .h               # Логирование
-├── Makefile                      # Сборка проекта
-└── README.md                     # Этот файл
+├── serverInterface.cpp / .h      // Обработка параметров командной строки (Boost)
+├── network_server.cpp / .h       // TCP-сервер, обработка клиента, векторы
+├── vector_processor.cpp / .h     // Обработка векторов (сумма)
+├── authdb.cpp / .h               // Журнал базы пользователей
+├── logger.cpp / .h               // Логирование
+├── Makefile                      // Сборка проекта
+└── README.md                     // Этот файл
 
 ## Зависимости
 Для сборки требуется:
