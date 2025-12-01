@@ -23,12 +23,15 @@ TARGET = $(BIN_DIR)/tcp_server
 # PHONY цели
 .PHONY: all clean run help rebuild dirs
 
+# Главное: создаём каталоги, собираем объектники и линковка
+all: dirs $(TARGET)
+
+
 # создать каталоги, если нужно
 dirs:
 	mkdir -p $(OBJ_DIR) $(BIN_DIR)
 
-# Главное: создаём каталоги, собираем объектники и линковка
-all: dirs $(TARGET)
+
 
 $(TARGET): $(OBJ)
 	$(CXX) $(CXXFLAGS) -o $@ $(OBJ) $(LIBS)
