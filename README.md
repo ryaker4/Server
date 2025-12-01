@@ -28,8 +28,18 @@ sudo apt install libboost-program-options-dev libcrypto++-dev
 После сборки проект будет:
 - bin/tcp_server
 
+## Тестирование работоспособности
+После компиляция в папку bin нужно скопировать файл clients!!!
 
+Запуск сервера(из папки bin)
+````
+./tcp_server -p 33333 -a 127.0.0.1 -d clients
+````
 
+Запуск клиента(из папки Server)
+````
+./client_uint32_t -H SHA224 -S c
+````
 
 
 
