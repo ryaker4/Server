@@ -6,5 +6,5 @@ class VectorProcessor {
 public:
     // суммирует элементы (float/double) и контролирует переполнение.
     // Возвращает приводимое к int32 значение в диапазоне [0, 2^31-1].
-    static int32_t sumClamp(const std::vector<float>& v);
+    static int32_t sumClamp(const std::vector<uint32_t>& v);
 };

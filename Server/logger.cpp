@@ -23,3 +23,4 @@ void Logger::write(const std::string& level, const std::string& msg) {
 
 void Logger::info(const std::string& msg) { write("INFO", msg); }
 void Logger::error(const std::string& msg) { write("ERROR", msg); }
+void Logger::warning(const std::string& msg) { write("WARNING", msg); }

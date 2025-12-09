@@ -4,8 +4,8 @@
 #include <string>
 
 struct ServerParams {
-    int port = 46913;
-    std::string address = "0.0.0.0";
+    int port = 33333;
+    std::string address = "121.0.0.1";
     std::string logFile = "server.log";
     std::string clientsDbFile = "clients.db";
     bool help = false;
