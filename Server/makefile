@@ -9,7 +9,10 @@ SRC = main.cpp \
       logger.cpp \
       authdb.cpp \
       vector_processor.cpp \
-      network_server.cpp
+      network_server.cpp \
+      auth_handler.cpp \
+      network_utils.cpp \
+      vector_handler.cpp
 
 # каталоги для сборки
 OBJ_DIR = build
