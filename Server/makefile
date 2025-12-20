@@ -46,7 +46,7 @@ $(OBJ_DIR)/%.o: %.cpp | dirs
 
 # Удаление всех результатов сборки
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR)
+	rm -rf $(OBJ_DIR) $(TARGET)
 
 # Пересобрать всё
 rebuild: clean all
