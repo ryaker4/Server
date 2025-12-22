@@ -14,8 +14,8 @@ struct ServerInterface::Impl {
     Impl() {
         desc.add_options()
             ("help,h", "Show help")
-            ("port,p", po::value<int>(&params.port)->default_value(46913), "Server port to listen")
-            ("address,a", po::value<std::string>(&params.address)->default_value("0.0.0.0"), "Bind address")
+            ("port,p", po::value<int>(&params.port)->default_value(33333), "Server port to listen")
+            ("address,a", po::value<std::string>(&params.address)->default_value("127.0.0.1"), "Bind address")
             ("log,l", po::value<std::string>(&params.logFile)->default_value("server.log"), "Log file path")
             ("clients-db,d", po::value<std::string>(&params.clientsDbFile)->default_value("clients.db"),
                  "Clients DB file (format: login:password per line)");

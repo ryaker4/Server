@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <unistd.h>
 #include <sys/socket.h>
+#include <iostream>
 
 // ====================================================================
 // Конструктор / деструктор
@@ -65,6 +66,7 @@ void NetworkServer::createSocket()
         throw std::system_error(errno, std::generic_category(), "listen");
 
     logger.info("Listening on " + params.address + ":" + std::to_string(params.port));
+    std::cout<< "Слушаем " << params.address << ":" << std::to_string(params.port) << std::endl;
 }
 
 // ====================================================================
@@ -76,6 +78,7 @@ void NetworkServer::run()
 
     while(running) {
         logger.info("Waiting for client...");
+        std::cout << "Ожидание клиента.." << std::endl;
 
         sockaddr_in cli_addr{};
         socklen_t cli_len = sizeof(cli_addr);
@@ -92,6 +95,7 @@ void NetworkServer::run()
 
         std::string client_info = NetworkUtils::sockaddrToString(cli_addr);
         logger.info("Accepted connection from " + client_info);
+        std::cout << "Принято соединение от: " << client_info << std::endl;
 
         try {
             serveClient(client_fd);
@@ -101,6 +105,7 @@ void NetworkServer::run()
 
         close(client_fd);
         logger.info("Client disconnected: " + client_info);
+        std::cout << "Клиент отключен: " << client_info << std::endl;
     }
 
     logger.info("Server loop exited.");

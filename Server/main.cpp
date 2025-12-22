@@ -22,11 +22,13 @@ int main(int argc, char** argv) {
         // logger
         Logger logger(params.logFile);
         logger.info("Server starting");
+        std::cout << "Сервер запущен.." << std::endl;
 
         // load auth DB
         AuthDB auth;
         auth.loadFromFile(params.clientsDbFile);
         logger.info("Loaded clients DB: " + params.clientsDbFile);
+        std::cout << "Загружена БД клиентов: " << params.clientsDbFile << std::endl;
 
         // create and run server (sequential)
         NetworkServer server(params, logger, auth);
