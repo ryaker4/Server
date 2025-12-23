@@ -1,0 +1,338 @@
+\hypertarget{classVectorHandler}{}\doxysection{Класс Vector\+Handler}
+\label{classVectorHandler}\index{VectorHandler@{VectorHandler}}
+
+
+Класс для обработки векторных запросов от клиентов  
+
+
+
+
+{\ttfamily \#include $<$vector\+\_\+handler.\+h$>$}
+
+
+
+Граф связей класса Vector\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classVectorHandler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVectorHandler_a1feb6e3585f2fd90f0c45153da70eb96}{Vector\+Handler}} (\mbox{\hyperlink{classLogger}{Logger}} \&logger)
+\begin{DoxyCompactList}\small\item\em Конструктор обработчика векторов \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVectorHandler_a8b2362b4b29cbcac0b56b1631e633a83}{process}} (int client\+\_\+fd, const std\+::string \&login)
+\begin{DoxyCompactList}\small\item\em Основной метод обработки векторов \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVectorHandler_ad4c7cc69ec66d2b88dba7da3023ebdac}{read\+Vector}} (int client\+\_\+fd, std\+::vector$<$ uint32\+\_\+t $>$ \&vector)
+\begin{DoxyCompactList}\small\item\em Чтение вектора из сокета \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{classVectorHandler_ac89d8c81df4ce33e2c508438bb0fae12}{process\+Vector}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&vector)
+\begin{DoxyCompactList}\small\item\em Обработка одного вектора \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVectorHandler_a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5}{send\+Result}} (int client\+\_\+fd, int32\+\_\+t result)
+\begin{DoxyCompactList}\small\item\em Отправка результата клиенту \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classVectorHandler_ad12df915d098eb6178ef5af85b683be6}{read\+Vector\+Count}} (int client\+\_\+fd)
+\begin{DoxyCompactList}\small\item\em Чтение количества векторов \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVectorHandler_a4331b2232b66af1900b95ac1dc8b6992}{validate\+Vector\+Count}} (uint32\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Валидация количества векторов \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classVectorHandler_a6678666050251b9331ced74544126737}{validate\+Vector\+Size}} (uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Валидация размера вектора \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classVectorHandler_a2d503a514a96c8c29ff012cec881df0b}\label{classVectorHandler_a2d503a514a96c8c29ff012cec881df0b}} 
+\mbox{\hyperlink{classLogger}{Logger}} \& {\bfseries logger\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ссылка на объект логгера \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для обработки векторных запросов от клиентов 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classVectorHandler_a1feb6e3585f2fd90f0c45153da70eb96}\label{classVectorHandler_a1feb6e3585f2fd90f0c45153da70eb96}} 
+\index{VectorHandler@{VectorHandler}!VectorHandler@{VectorHandler}}
+\index{VectorHandler@{VectorHandler}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{VectorHandler()}{VectorHandler()}}
+{\footnotesize\ttfamily Vector\+Handler\+::\+Vector\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} \&}]{logger }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор обработчика векторов 
+
+Создает обработчик векторных запросов
+
+
+\begin{DoxyParams}{Аргументы}
+{\em logger} & Логгер для записи событий\\
+\hline
+{\em logger} & Логгер для записи событий обработки векторов \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classVectorHandler_a8b2362b4b29cbcac0b56b1631e633a83}\label{classVectorHandler_a8b2362b4b29cbcac0b56b1631e633a83}} 
+\index{VectorHandler@{VectorHandler}!process@{process}}
+\index{process@{process}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void Vector\+Handler\+::process (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+fd,  }\item[{const std\+::string \&}]{login }\end{DoxyParamCaption})}
+
+
+
+Основной метод обработки векторов 
+
+Основной метод обработки векторов для аутентифицированного клиента
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em login} & Логин аутентифицированного пользователя \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & при ошибках обработки\\
+\hline
+\end{DoxyExceptions}
+Процесс обработки\+:
+\begin{DoxyEnumerate}
+\item Чтение количества векторов (uint32\+\_\+t, сетевой порядок байт)
+\item Для каждого вектора\+: a. Чтение размера вектора b. Чтение данных вектора c. Обработка вектора (суммирование с ограничением) d. Отправка результата клиенту
+\item Логирование прогресса и статистики 
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em login} & Логин аутентифицированного пользователя (для логирования) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & при ошибках чтения/записи или неверных данных \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Заметки}
+Максимальное количество векторов\+: 100,000 
+
+Максимальный размер одного вектора\+: 10,000,000 элементов 
+
+Каждые 10 векторов логируется прогресс обработки 
+\end{DoxyNote}
+
+\end{DoxyEnumerate}\mbox{\Hypertarget{classVectorHandler_ac89d8c81df4ce33e2c508438bb0fae12}\label{classVectorHandler_ac89d8c81df4ce33e2c508438bb0fae12}} 
+\index{VectorHandler@{VectorHandler}!processVector@{processVector}}
+\index{processVector@{processVector}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{processVector()}{processVector()}}
+{\footnotesize\ttfamily int32\+\_\+t Vector\+Handler\+::process\+Vector (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{vector }\end{DoxyParamCaption})}
+
+
+
+Обработка одного вектора 
+
+Обрабатывает один вектор (суммирование с ограничением)
+
+
+\begin{DoxyParams}{Аргументы}
+{\em vector} & Вектор для обработки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат обработки (сумма с ограничением)
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Аргументы}
+{\em vector} & Вектор для обработки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Результат обработки (сумма элементов с ограничением) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Использует \mbox{\hyperlink{classVectorProcessor_acd1afc48ea00177af36466af2e981bf2}{Vector\+Processor\+::sum\+Clamp()}} для вычисления 
+\end{DoxyNote}
+\mbox{\Hypertarget{classVectorHandler_ad4c7cc69ec66d2b88dba7da3023ebdac}\label{classVectorHandler_ad4c7cc69ec66d2b88dba7da3023ebdac}} 
+\index{VectorHandler@{VectorHandler}!readVector@{readVector}}
+\index{readVector@{readVector}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{readVector()}{readVector()}}
+{\footnotesize\ttfamily bool Vector\+Handler\+::read\+Vector (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+fd,  }\item[{std\+::vector$<$ uint32\+\_\+t $>$ \&}]{vector }\end{DoxyParamCaption})}
+
+
+
+Чтение вектора из сокета 
+
+Читает один вектор из сокета
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em vector} & Ссылка на вектор для записи данных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если чтение успешно, false в противном случае
+\end{DoxyReturn}
+Читает размер вектора (uint32\+\_\+t), затем читает данные вектора. Размер вектора проверяется на корректность. 
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em vector} & Ссылка на вектор для записи данных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если чтение успешно, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Использует recv\+All() для гарантированного чтения всех данных 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Постусловие}
+Если возвращено true, vector содержит прочитанные данные 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classVectorHandler_ad12df915d098eb6178ef5af85b683be6}\label{classVectorHandler_ad12df915d098eb6178ef5af85b683be6}} 
+\index{VectorHandler@{VectorHandler}!readVectorCount@{readVectorCount}}
+\index{readVectorCount@{readVectorCount}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{readVectorCount()}{readVectorCount()}}
+{\footnotesize\ttfamily uint32\+\_\+t Vector\+Handler\+::read\+Vector\+Count (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Чтение количества векторов 
+
+Читает количество векторов для обработки
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество векторов для обработки 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & при неверном количестве\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество векторов для обработки 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & при ошибке чтения или неверном значении \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Заметки}
+Значение читается в сетевом порядке байт и проверяется на корректность 
+\end{DoxyNote}
+\mbox{\Hypertarget{classVectorHandler_a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5}\label{classVectorHandler_a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5}} 
+\index{VectorHandler@{VectorHandler}!sendResult@{sendResult}}
+\index{sendResult@{sendResult}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{sendResult()}{sendResult()}}
+{\footnotesize\ttfamily bool Vector\+Handler\+::send\+Result (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+fd,  }\item[{int32\+\_\+t}]{result }\end{DoxyParamCaption})}
+
+
+
+Отправка результата клиенту 
+
+Отправляет результат обработки вектора клиенту
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em result} & Результат обработки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если отправка успешна, false в противном случае
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em result} & Результат обработки вектора \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если отправка успешна, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Результат отправляется в сетевом порядке байт 
+\end{DoxyNote}
+\mbox{\Hypertarget{classVectorHandler_a4331b2232b66af1900b95ac1dc8b6992}\label{classVectorHandler_a4331b2232b66af1900b95ac1dc8b6992}} 
+\index{VectorHandler@{VectorHandler}!validateVectorCount@{validateVectorCount}}
+\index{validateVectorCount@{validateVectorCount}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{validateVectorCount()}{validateVectorCount()}}
+{\footnotesize\ttfamily bool Vector\+Handler\+::validate\+Vector\+Count (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Валидация количества векторов 
+
+Проверяет корректность количества векторов
+
+
+\begin{DoxyParams}{Аргументы}
+{\em count} & Проверяемое количество \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если количество допустимо, false в противном случае
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Аргументы}
+{\em count} & Проверяемое количество векторов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если количество допустимо, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Допустимый диапазон\+: 1..100,000 
+\end{DoxyNote}
+\mbox{\Hypertarget{classVectorHandler_a6678666050251b9331ced74544126737}\label{classVectorHandler_a6678666050251b9331ced74544126737}} 
+\index{VectorHandler@{VectorHandler}!validateVectorSize@{validateVectorSize}}
+\index{validateVectorSize@{validateVectorSize}!VectorHandler@{VectorHandler}}
+\doxysubsubsection{\texorpdfstring{validateVectorSize()}{validateVectorSize()}}
+{\footnotesize\ttfamily bool Vector\+Handler\+::validate\+Vector\+Size (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Валидация размера вектора 
+
+Проверяет корректность размера вектора
+
+
+\begin{DoxyParams}{Аргументы}
+{\em size} & Проверяемый размер \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если размер допустим, false в противном случае
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Аргументы}
+{\em size} & Проверяемый размер вектора \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если размер допустим, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Допустимый диапазон\+: 1..10,000,000 
+\end{DoxyNote}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+vector\+\_\+handler.\+h\item 
+vector\+\_\+handler.\+cpp\end{DoxyCompactItemize}

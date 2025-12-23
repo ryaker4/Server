@@ -1,0 +1,46 @@
+\hypertarget{classVectorProcessor}{}\doxysection{Класс Vector\+Processor}
+\label{classVectorProcessor}\index{VectorProcessor@{VectorProcessor}}
+
+
+Класс для обработки векторов чисел с контролем переполнения  
+
+
+
+
+{\ttfamily \#include $<$vector\+\_\+processor.\+h$>$}
+
+\doxysubsection*{Открытые статические члены}
+\begin{DoxyCompactItemize}
+\item 
+static int32\+\_\+t \mbox{\hyperlink{classVectorProcessor_acd1afc48ea00177af36466af2e981bf2}{sum\+Clamp}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Суммирует элементы вектора с контролем переполнения \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для обработки векторов чисел с контролем переполнения 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classVectorProcessor_acd1afc48ea00177af36466af2e981bf2}\label{classVectorProcessor_acd1afc48ea00177af36466af2e981bf2}} 
+\index{VectorProcessor@{VectorProcessor}!sumClamp@{sumClamp}}
+\index{sumClamp@{sumClamp}!VectorProcessor@{VectorProcessor}}
+\doxysubsubsection{\texorpdfstring{sumClamp()}{sumClamp()}}
+{\footnotesize\ttfamily int32\+\_\+t Vector\+Processor\+::sum\+Clamp (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Суммирует элементы вектора с контролем переполнения 
+
+Использует 64-\/битный аккумулятор для избежания переполнения, возвращает результат в диапазоне \mbox{[}0, 2$^\wedge$31-\/1\mbox{]} 
+\begin{DoxyParams}{Аргументы}
+{\em v} & Вектор 32-\/битных беззнаковых целых чисел \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Сумма элементов, приведенная к int32\+\_\+t с учетом ограничений 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+vector\+\_\+processor.\+h\item 
+vector\+\_\+processor.\+cpp\end{DoxyCompactItemize}

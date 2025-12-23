@@ -1,0 +1,251 @@
+\hypertarget{classNetworkServer}{}\doxysection{Класс Network\+Server}
+\label{classNetworkServer}\index{NetworkServer@{NetworkServer}}
+
+
+Основной класс сетевого сервера  
+
+
+
+
+{\ttfamily \#include $<$network\+\_\+server.\+h$>$}
+
+
+
+Граф связей класса Network\+Server\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classNetworkServer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNetworkServer_a64205f9313c197ff85abc5204d0238ed}{Network\+Server}} (const \mbox{\hyperlink{structServerParams}{Server\+Params}} \&p, \mbox{\hyperlink{classLogger}{Logger}} \&lg, \mbox{\hyperlink{classAuthDB}{Auth\+DB}} \&a)
+\begin{DoxyCompactList}\small\item\em Конструктор сервера \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classNetworkServer_a450382ee444f54b8d238f161d1514cff}{$\sim$\+Network\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор сервера \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkServer_ae9a3ec5c90111aa30caa44dfe4e653fb}{run}} ()
+\begin{DoxyCompactList}\small\item\em Запуск основного цикла сервера \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkServer_a254c5949ae09d858fb9779755b82c722}{request\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Запрос остановки сервера \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNetworkServer_ac921e4fa355b571a5dc2eaa96228bc07}{is\+Running}} () const
+\begin{DoxyCompactList}\small\item\em Проверка состояния работы сервера \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworkServer_aeb4f94bd78cc05ff5b564ce811b950fc}{create\+Socket}} ()
+\begin{DoxyCompactList}\small\item\em Создание слушающего сокета \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNetworkServer_ac9fe7324108332ae15fc36b0453360be}{serve\+Client}} (int client\+\_\+fd)
+\begin{DoxyCompactList}\small\item\em Обслуживание подключенного клиента \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classNetworkServer_a5fc126190e75afed1ec2bfb1d823a72e}\label{classNetworkServer_a5fc126190e75afed1ec2bfb1d823a72e}} 
+int {\bfseries listen\+\_\+fd} = -\/1
+\begin{DoxyCompactList}\small\item\em Файловый дескриптор слушающего сокета \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkServer_aae6f217ff47f4c621720bec99c79fcdc}\label{classNetworkServer_aae6f217ff47f4c621720bec99c79fcdc}} 
+\mbox{\hyperlink{structServerParams}{Server\+Params}} {\bfseries params}
+\begin{DoxyCompactList}\small\item\em Параметры конфигурации сервера \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkServer_ac801161afc822bc9ad03d6070c9e0684}\label{classNetworkServer_ac801161afc822bc9ad03d6070c9e0684}} 
+\mbox{\hyperlink{classLogger}{Logger}} \& {\bfseries logger}
+\begin{DoxyCompactList}\small\item\em Ссылка на объект логгера \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkServer_aba19037db98c33135ac1448343e4b0db}\label{classNetworkServer_aba19037db98c33135ac1448343e4b0db}} 
+\mbox{\hyperlink{classAuthDB}{Auth\+DB}} \& {\bfseries auth}
+\begin{DoxyCompactList}\small\item\em Ссылка на базу данных аутентификации \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classNetworkServer_a0e2bba04007ab3075238291471d28538}\label{classNetworkServer_a0e2bba04007ab3075238291471d28538}} 
+std\+::atomic$<$ bool $>$ {\bfseries running} \{true\}
+\begin{DoxyCompactList}\small\item\em Флаг работы сервера \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Основной класс сетевого сервера 
+
+Осуществляет прием подключений, аутентификацию клиентов и обработку их запросов 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classNetworkServer_a64205f9313c197ff85abc5204d0238ed}\label{classNetworkServer_a64205f9313c197ff85abc5204d0238ed}} 
+\index{NetworkServer@{NetworkServer}!NetworkServer@{NetworkServer}}
+\index{NetworkServer@{NetworkServer}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{NetworkServer()}{NetworkServer()}}
+{\footnotesize\ttfamily Network\+Server\+::\+Network\+Server (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structServerParams}{Server\+Params}} \&}]{p,  }\item[{\mbox{\hyperlink{classLogger}{Logger}} \&}]{lg,  }\item[{\mbox{\hyperlink{classAuthDB}{Auth\+DB}} \&}]{a }\end{DoxyParamCaption})}
+
+
+
+Конструктор сервера 
+
+Создает сетевой сервер с заданными параметрами
+
+
+\begin{DoxyParams}{Аргументы}
+{\em p} & Параметры конфигурации сервера \\
+\hline
+{\em lg} & Логгер для записи событий \\
+\hline
+{\em a} & База данных аутентификации\\
+\hline
+{\em p} & Параметры конфигурации сервера \\
+\hline
+{\em lg} & Логгер для записи событий \\
+\hline
+{\em a} & База данных аутентификации \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Заметки}
+Дескриптор сокета инициализируется значением -\/1 (невалидный) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classNetworkServer_a450382ee444f54b8d238f161d1514cff}\label{classNetworkServer_a450382ee444f54b8d238f161d1514cff}} 
+\index{NetworkServer@{NetworkServer}!````~NetworkServer@{$\sim$NetworkServer}}
+\index{````~NetworkServer@{$\sim$NetworkServer}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{$\sim$NetworkServer()}{~NetworkServer()}}
+{\footnotesize\ttfamily Network\+Server\+::$\sim$\+Network\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Деструктор сервера 
+
+Закрывает слушающий сокет, если он был открыт. Гарантирует освобождение системных ресурсов. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classNetworkServer_aeb4f94bd78cc05ff5b564ce811b950fc}\label{classNetworkServer_aeb4f94bd78cc05ff5b564ce811b950fc}} 
+\index{NetworkServer@{NetworkServer}!createSocket@{createSocket}}
+\index{createSocket@{createSocket}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{createSocket()}{createSocket()}}
+{\footnotesize\ttfamily void Network\+Server\+::create\+Socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Создание слушающего сокета 
+
+Создает и настраивает слушающий сокет
+
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::system\+\_\+error} & при ошибках создания сокета\\
+\hline
+\end{DoxyExceptions}
+Выполняет последовательность действий\+:
+\begin{DoxyEnumerate}
+\item Создание TCP сокета (AF\+\_\+\+INET, SOCK\+\_\+\+STREAM)
+\item Установка опции SO\+\_\+\+REUSEADDR для быстрого переиспользования порта
+\item Привязка сокета к указанному адресу и порту
+\item Перевод сокета в режим прослушивания 
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::system\+\_\+error} & при ошибках создания/настройки сокета \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPostcond}{Постусловие}
+listen\+\_\+fd содержит валидный дескриптор слушающего сокета 
+\end{DoxyPostcond}
+\begin{DoxyNote}{Заметки}
+Очередь ожидающих соединений установлена в 5 (стандартное значение) 
+\end{DoxyNote}
+
+\end{DoxyEnumerate}\mbox{\Hypertarget{classNetworkServer_ac921e4fa355b571a5dc2eaa96228bc07}\label{classNetworkServer_ac921e4fa355b571a5dc2eaa96228bc07}} 
+\index{NetworkServer@{NetworkServer}!isRunning@{isRunning}}
+\index{isRunning@{isRunning}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{isRunning()}{isRunning()}}
+{\footnotesize\ttfamily bool Network\+Server\+::is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Проверка состояния работы сервера 
+
+Проверяет, работает ли сервер
+
+\begin{DoxyReturn}{Возвращает}
+true если сервер работает, false в противном случае 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classNetworkServer_a254c5949ae09d858fb9779755b82c722}\label{classNetworkServer_a254c5949ae09d858fb9779755b82c722}} 
+\index{NetworkServer@{NetworkServer}!requestStop@{requestStop}}
+\index{requestStop@{requestStop}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{requestStop()}{requestStop()}}
+{\footnotesize\ttfamily void Network\+Server\+::request\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Запрос остановки сервера 
+
+Запрашивает остановку сервера
+
+Устанавливает флаг running в false и закрывает слушающий сокет. Это приводит к выходу из основного цикла accept(). \begin{DoxyNote}{Заметки}
+Потокобезопасен благодаря использованию std\+::atomic$<$bool$>$ 
+\end{DoxyNote}
+\mbox{\Hypertarget{classNetworkServer_ae9a3ec5c90111aa30caa44dfe4e653fb}\label{classNetworkServer_ae9a3ec5c90111aa30caa44dfe4e653fb}} 
+\index{NetworkServer@{NetworkServer}!run@{run}}
+\index{run@{run}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Network\+Server\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Запуск основного цикла сервера 
+
+Запускает основной цикл работы сервера
+
+Алгоритм работы\+:
+\begin{DoxyEnumerate}
+\item Создание слушающего сокета
+\item Цикл while(running)\+: a. Ожидание подключения клиента (accept) b. Принятие соединения c. Обработка клиента в \mbox{\hyperlink{classNetworkServer_ac9fe7324108332ae15fc36b0453360be}{serve\+Client()}} d. Закрытие клиентского сокета
+\item Логирование завершения работы \begin{DoxyNote}{Заметки}
+Сервер работает в однопоточном (последовательном) режиме 
+
+Цикл прерывается при установке флага running в false 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{См. также}
+\mbox{\hyperlink{classNetworkServer_ac9fe7324108332ae15fc36b0453360be}{serve\+Client()}} 
+\end{DoxySeeAlso}
+
+\end{DoxyEnumerate}\mbox{\Hypertarget{classNetworkServer_ac9fe7324108332ae15fc36b0453360be}\label{classNetworkServer_ac9fe7324108332ae15fc36b0453360be}} 
+\index{NetworkServer@{NetworkServer}!serveClient@{serveClient}}
+\index{serveClient@{serveClient}!NetworkServer@{NetworkServer}}
+\doxysubsubsection{\texorpdfstring{serveClient()}{serveClient()}}
+{\footnotesize\ttfamily void Network\+Server\+::serve\+Client (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+fd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Обслуживание подключенного клиента 
+
+Обслуживает подключенного клиента
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета\\
+\hline
+\end{DoxyParams}
+Процесс обслуживания состоит из двух этапов\+:
+\begin{DoxyEnumerate}
+\item Аутентификация\+:
+\begin{DoxyItemize}
+\item Создание \mbox{\hyperlink{classAuthHandler}{Auth\+Handler}}
+\item Проверка учетных данных клиента
+\item Если аутентификация не пройдена -\/ закрытие соединения
+\end{DoxyItemize}
+\item Обработка векторов\+:
+\begin{DoxyItemize}
+\item Создание \mbox{\hyperlink{classVectorHandler}{Vector\+Handler}}
+\item Чтение и обработка векторных данных
+\item Отправка результатов клиенту 
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em Может} & генерировать исключения из \mbox{\hyperlink{classAuthHandler}{Auth\+Handler}} и \mbox{\hyperlink{classVectorHandler}{Vector\+Handler}} \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Заметки}
+Оба этапа выполняются в одном потоке последовательно 
+
+При ошибке на любом этапе соединение закрывается 
+\end{DoxyNote}
+
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+network\+\_\+server.\+h\item 
+network\+\_\+server.\+cpp\end{DoxyCompactItemize}

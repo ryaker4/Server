@@ -1,0 +1,104 @@
+\hypertarget{classServerInterface}{}\doxysection{Класс Server\+Interface}
+\label{classServerInterface}\index{ServerInterface@{ServerInterface}}
+
+
+Класс для обработки параметров командной строки сервера  
+
+
+
+
+{\ttfamily \#include $<$server\+Interface.\+h$>$}
+
+
+
+Граф связей класса Server\+Interface\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=199pt]{classServerInterface__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structServerInterface_1_1Impl}{Impl}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classServerInterface_af57df880036851e66ac80226be0f9305}\label{classServerInterface_af57df880036851e66ac80226be0f9305}} 
+{\bfseries Server\+Interface} ()
+\begin{DoxyCompactList}\small\item\em Конструктор интерфейса командной строки \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classServerInterface_afae361889ced473bb92cac10fed92498}{parse}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Парсинг аргументов командной строки \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structServerParams}{Server\+Params}} \mbox{\hyperlink{classServerInterface_ae3c471be78fd1eb1c47b25c5d0779066}{get\+Params}} () const
+\begin{DoxyCompactList}\small\item\em Получение параметров сервера \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classServerInterface_af18af314bd6c16815aff1a2bd947b22f}{get\+Description}} () const
+\begin{DoxyCompactList}\small\item\em Получение описания параметров командной строки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classServerInterface_a5a5bee60a1ce898f7551dcb240d17716}\label{classServerInterface_a5a5bee60a1ce898f7551dcb240d17716}} 
+\mbox{\hyperlink{structServerInterface_1_1Impl}{Impl}} $\ast$ {\bfseries pimpl}
+\begin{DoxyCompactList}\small\item\em Указатель на реализацию (PImpl) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для обработки параметров командной строки сервера 
+
+Использует паттерн PImpl для сокрытия реализации 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classServerInterface_af18af314bd6c16815aff1a2bd947b22f}\label{classServerInterface_af18af314bd6c16815aff1a2bd947b22f}} 
+\index{ServerInterface@{ServerInterface}!getDescription@{getDescription}}
+\index{getDescription@{getDescription}!ServerInterface@{ServerInterface}}
+\doxysubsubsection{\texorpdfstring{getDescription()}{getDescription()}}
+{\footnotesize\ttfamily std\+::string Server\+Interface\+::get\+Description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Получение описания параметров командной строки 
+
+\begin{DoxyReturn}{Возвращает}
+Строка с описанием всех доступных опций 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServerInterface_ae3c471be78fd1eb1c47b25c5d0779066}\label{classServerInterface_ae3c471be78fd1eb1c47b25c5d0779066}} 
+\index{ServerInterface@{ServerInterface}!getParams@{getParams}}
+\index{getParams@{getParams}!ServerInterface@{ServerInterface}}
+\doxysubsubsection{\texorpdfstring{getParams()}{getParams()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structServerParams}{Server\+Params}} Server\+Interface\+::get\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Получение параметров сервера 
+
+\begin{DoxyReturn}{Возвращает}
+Структура с параметрами конфигурации 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServerInterface_afae361889ced473bb92cac10fed92498}\label{classServerInterface_afae361889ced473bb92cac10fed92498}} 
+\index{ServerInterface@{ServerInterface}!parse@{parse}}
+\index{parse@{parse}!ServerInterface@{ServerInterface}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily bool Server\+Interface\+::parse (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Парсинг аргументов командной строки 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em argc} & Количество аргументов \\
+\hline
+{\em argv} & Массив аргументов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если парсинг успешен, false если требуется показать справку 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+server\+Interface.\+h\item 
+server\+Interface.\+cpp\end{DoxyCompactItemize}

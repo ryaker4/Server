@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server: Класс AuthHandler</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classAuthHandler-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс AuthHandler</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для обработки аутентификации клиентов  
+ <a href="classAuthHandler.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="auth__handler_8h_source.html">auth_handler.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф связей класса AuthHandler:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAuthHandler__coll__graph.png" border="0" usemap="#aAuthHandler_coll__map" alt="Collaboration graph"/></div>
+<map name="aAuthHandler_coll__map" id="aAuthHandler_coll__map">
+<area shape="rect" title="Класс для обработки аутентификации клиентов" alt="" coords="34,95,137,121"/>
+<area shape="rect" href="classLogger.html" title="Класс для потокобезопасного логирования в файл" alt="" coords="5,5,72,32"/>
+<area shape="rect" href="classAuthDB.html" title="Класс для работы с базой данных аутентификации" alt="" coords="97,5,167,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a89b386feb8ae65e229533d639c1bd9d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthHandler.html#a89b386feb8ae65e229533d639c1bd9d7">AuthHandler</a> (<a class="el" href="classLogger.html">Logger</a> &amp;logger, <a class="el" href="classAuthDB.html">AuthDB</a> &amp;authDb)</td></tr>
+<tr class="memdesc:a89b386feb8ae65e229533d639c1bd9d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор обработчика аутентификации  <a href="classAuthHandler.html#a89b386feb8ae65e229533d639c1bd9d7">Подробнее...</a><br /></td></tr>
+<tr class="separator:a89b386feb8ae65e229533d639c1bd9d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae03e6c7f59e44a4b64f2605bcd64defe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthHandler.html#ae03e6c7f59e44a4b64f2605bcd64defe">authenticate</a> (int client_fd, std::string &amp;out_login)</td></tr>
+<tr class="memdesc:ae03e6c7f59e44a4b64f2605bcd64defe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основной метод аутентификации  <a href="classAuthHandler.html#ae03e6c7f59e44a4b64f2605bcd64defe">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae03e6c7f59e44a4b64f2605bcd64defe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a962c9d168c984f23d514d8b927e0bb56"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthHandler.html#a962c9d168c984f23d514d8b927e0bb56">parseAuthData</a> (const std::string &amp;data, std::string &amp;login, std::string &amp;salt_hex, std::string &amp;hash_hex)</td></tr>
+<tr class="memdesc:a962c9d168c984f23d514d8b927e0bb56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Парсинг данных аутентификации  <a href="classAuthHandler.html#a962c9d168c984f23d514d8b927e0bb56">Подробнее...</a><br /></td></tr>
+<tr class="separator:a962c9d168c984f23d514d8b927e0bb56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9439b20f77eceaa6e1c9dbf853ef359"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthHandler.html#aa9439b20f77eceaa6e1c9dbf853ef359">verifyHash</a> (const std::string &amp;login, const std::string &amp;password, const std::string &amp;salt_hex, const std::string &amp;client_hash_hex)</td></tr>
+<tr class="memdesc:aa9439b20f77eceaa6e1c9dbf853ef359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка хэша пароля  <a href="classAuthHandler.html#aa9439b20f77eceaa6e1c9dbf853ef359">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa9439b20f77eceaa6e1c9dbf853ef359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:ad5c77c61fbc74effb7a5551eef772e6c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthHandler.html#ad5c77c61fbc74effb7a5551eef772e6c">sendResponse</a> (int client_fd, bool success)</td></tr>
+<tr class="memdesc:ad5c77c61fbc74effb7a5551eef772e6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка ответа клиенту  <a href="classAuthHandler.html#ad5c77c61fbc74effb7a5551eef772e6c">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad5c77c61fbc74effb7a5551eef772e6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbe8a3020d96311be3c3a4e9101718b0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthHandler.html#acbe8a3020d96311be3c3a4e9101718b0">computeSHA224</a> (const std::string &amp;data)</td></tr>
+<tr class="memdesc:acbe8a3020d96311be3c3a4e9101718b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисление SHA224 хэша  <a href="classAuthHandler.html#acbe8a3020d96311be3c3a4e9101718b0">Подробнее...</a><br /></td></tr>
+<tr class="separator:acbe8a3020d96311be3c3a4e9101718b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a5cd17eb68b8762da4d79b69998cfebdb"><td class="memItemLeft" align="right" valign="top"><a id="a5cd17eb68b8762da4d79b69998cfebdb" name="a5cd17eb68b8762da4d79b69998cfebdb"></a>
+<a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>logger_</b></td></tr>
+<tr class="memdesc:a5cd17eb68b8762da4d79b69998cfebdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ссылка на объект логгера <br /></td></tr>
+<tr class="separator:a5cd17eb68b8762da4d79b69998cfebdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05ea466619ea05e1fee9ca841975d7a0"><td class="memItemLeft" align="right" valign="top"><a id="a05ea466619ea05e1fee9ca841975d7a0" name="a05ea466619ea05e1fee9ca841975d7a0"></a>
+<a class="el" href="classAuthDB.html">AuthDB</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>authDb_</b></td></tr>
+<tr class="memdesc:a05ea466619ea05e1fee9ca841975d7a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ссылка на базу данных аутентификации <br /></td></tr>
+<tr class="separator:a05ea466619ea05e1fee9ca841975d7a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс для обработки аутентификации клиентов </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a89b386feb8ae65e229533d639c1bd9d7" name="a89b386feb8ae65e229533d639c1bd9d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89b386feb8ae65e229533d639c1bd9d7">&#9670;&nbsp;</a></span>AuthHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AuthHandler::AuthHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td>
+          <td class="paramname"><em>logger</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classAuthDB.html">AuthDB</a> &amp;&#160;</td>
+          <td class="paramname"><em>authDb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор обработчика аутентификации </p>
+<p >Создает обработчик аутентификации</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Логгер для записи событий </td></tr>
+    <tr><td class="paramname">authDb</td><td>База данных аутентификации</td></tr>
+    <tr><td class="paramname">logger</td><td>Ссылка на логгер для записи событий аутентификации </td></tr>
+    <tr><td class="paramname">authDb</td><td>Ссылка на базу данных аутентификации </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="ae03e6c7f59e44a4b64f2605bcd64defe" name="ae03e6c7f59e44a4b64f2605bcd64defe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae03e6c7f59e44a4b64f2605bcd64defe">&#9670;&nbsp;</a></span>authenticate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AuthHandler::authenticate </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>client_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>out_login</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основной метод аутентификации </p>
+<p >Выполняет процесс аутентификации клиента</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">out_login</td><td>Ссылка на строку для записи аутентифицированного логина </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если аутентификация успешна, false в противном случае</dd></dl>
+<p>Процесс аутентификации состоит из следующих шагов:</p><ol type="1">
+<li>Чтение данных аутентификации из сокета (до 255 байт)</li>
+<li>Парсинг данных: извлечение логина, соли и хэша</li>
+<li>Поиск пароля в базе данных по логину</li>
+<li>Вычисление хэша на стороне сервера и сравнение с клиентским</li>
+<li>Отправка результата клиенту ("OK" или "ERR") <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">out_login</td><td>Ссылка на строку для записи аутентифицированного логина </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если аутентификация успешна, false в противном случае </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Максимальный размер данных аутентификации: 255 байт </dd>
+<dd>
+Формат данных: &lt;логин&gt;&lt;72 шестнадцатеричных символа&gt; где 72 символа = 16 символов соли + 56 символов хэша SHA224 </dd></dl>
+<dl class="section post"><dt>Постусловие</dt><dd>Если аутентификация успешна, out_login содержит логин клиента </dd></dl>
+</li>
+</ol>
+
+</div>
+</div>
+<a id="acbe8a3020d96311be3c3a4e9101718b0" name="acbe8a3020d96311be3c3a4e9101718b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbe8a3020d96311be3c3a4e9101718b0">&#9670;&nbsp;</a></span>computeSHA224()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AuthHandler::computeSHA224 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисление SHA224 хэша </p>
+<p >Вычисляет SHA224 хэш от переданных данных</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Данные для хэширования </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Хэш в виде hex строки</dd></dl>
+<p>Использует библиотеку CryptoPP для вычисления хэша. Результат возвращается в виде шестнадцатеричной строки. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Строка данных для хэширования </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Хэш SHA224 в виде hex строки (56 символов) </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Размер хэша SHA224: 28 байт (224 бита) = 56 hex символов </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd>CryptoPP::SHA224 </dd></dl>
+
+</div>
+</div>
+<a id="a962c9d168c984f23d514d8b927e0bb56" name="a962c9d168c984f23d514d8b927e0bb56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a962c9d168c984f23d514d8b927e0bb56">&#9670;&nbsp;</a></span>parseAuthData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AuthHandler::parseAuthData </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>salt_hex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>hash_hex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Парсинг данных аутентификации </p>
+<p >Парсит данные аутентификации, полученные от клиента</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Сырые данные от клиента </td></tr>
+    <tr><td class="paramname">login</td><td>Ссылка на строку для записи логина </td></tr>
+    <tr><td class="paramname">salt_hex</td><td>Ссылка на строку для записи соли в hex </td></tr>
+    <tr><td class="paramname">hash_hex</td><td>Ссылка на строку для записи хэша в hex </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если парсинг успешен, false в противном случае</dd></dl>
+<p>Формат данных: все символы кроме последних 72 - логин, последние 72 символа - шестнадцатеричные данные (16 символов соли + 56 символов хэша) </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Сырые данные от клиента (логин + hex) </td></tr>
+    <tr><td class="paramname">login</td><td>Ссылка на строку для записи извлеченного логина </td></tr>
+    <tr><td class="paramname">salt_hex</td><td>Ссылка на строку для записи соли в hex (16 символов) </td></tr>
+    <tr><td class="paramname">hash_hex</td><td>Ссылка на строку для записи хэша в hex (56 символов) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если парсинг успешен, false в противном случае </dd></dl>
+<dl class="section pre"><dt>Предусловие</dt><dd>Длина data должна быть не менее 72 символов </dd>
+<dd>
+Последние 72 символа должны быть корректной hex строкой </dd></dl>
+<dl class="section post"><dt>Постусловие</dt><dd>Если возвращено true, параметры содержат извлеченные данные </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Логин может быть пустым, если data состоит ровно из 72 hex символов </dd></dl>
+
+</div>
+</div>
+<a id="ad5c77c61fbc74effb7a5551eef772e6c" name="ad5c77c61fbc74effb7a5551eef772e6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5c77c61fbc74effb7a5551eef772e6c">&#9670;&nbsp;</a></span>sendResponse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AuthHandler::sendResponse </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>client_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>success</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отправка ответа клиенту </p>
+<p >Отправляет клиенту результат аутентификации</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">success</td><td>Результат аутентификации </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если отправка успешна, false в противном случае</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">success</td><td>Результат аутентификации </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если отправка успешна, false в противном случае </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Формат ответа: "OK" при успехе, "ERR" при неудаче </dd>
+<dd>
+Длина ответа: 2 байта для "OK", 3 байта для "ERR" </dd></dl>
+
+</div>
+</div>
+<a id="aa9439b20f77eceaa6e1c9dbf853ef359" name="aa9439b20f77eceaa6e1c9dbf853ef359"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9439b20f77eceaa6e1c9dbf853ef359">&#9670;&nbsp;</a></span>verifyHash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AuthHandler::verifyHash </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>password</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>salt_hex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>client_hash_hex</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Проверка хэша пароля </p>
+<p >Проверяет корректность хэша пароля</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя </td></tr>
+    <tr><td class="paramname">password</td><td>Пароль из базы данных </td></tr>
+    <tr><td class="paramname">salt_hex</td><td>Соль в hex формате </td></tr>
+    <tr><td class="paramname">client_hash_hex</td><td>Хэш от клиента в hex формате </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если хэши совпадают, false в противном случае</dd></dl>
+<p>Процесс проверки:</p><ol type="1">
+<li>Конкатенирует соль (hex) и пароль (plaintext)</li>
+<li>Вычисляет SHA224 от результата конкатенации</li>
+<li>Сравнивает полученный хэш с хэшем от клиента <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя (для логирования) </td></tr>
+    <tr><td class="paramname">password</td><td>Пароль из базы данных в plaintext </td></tr>
+    <tr><td class="paramname">salt_hex</td><td>Соль в hex формате (16 символов, 8 байт) </td></tr>
+    <tr><td class="paramname">client_hash_hex</td><td>Хэш от клиента в hex формате (56 символов) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если хэши совпадают, false в противном случае </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Используется схема: hash = SHA224(salt || password) </dd>
+<dd>
+Сравнение выполняется с защитой от timing-атак через VerifyBufsEqual </dd></dl>
+</li>
+</ol>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="auth__handler_8h_source.html">auth_handler.h</a></li>
+<li>auth_handler.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

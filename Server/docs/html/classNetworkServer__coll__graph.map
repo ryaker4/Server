@@ -1,0 +1,6 @@
+<map id="NetworkServer" name="NetworkServer">
+<area shape="rect" id="node1" title="Основной класс сетевого сервера" alt="" coords="115,95,234,121"/>
+<area shape="rect" id="node2" href="$structServerParams.html" title="Структура параметров конфигурации сервера" alt="" coords="5,5,117,32"/>
+<area shape="rect" id="node3" href="$classLogger.html" title="Класс для потокобезопасного логирования в файл" alt="" coords="141,5,208,32"/>
+<area shape="rect" id="node4" href="$classAuthDB.html" title="Класс для работы с базой данных аутентификации" alt="" coords="233,5,303,32"/>
+</map>

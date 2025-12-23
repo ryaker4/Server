@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server: Класс VectorHandler</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classVectorHandler-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс VectorHandler</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для обработки векторных запросов от клиентов  
+ <a href="classVectorHandler.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vector__handler_8h_source.html">vector_handler.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф связей класса VectorHandler:</div>
+<div class="dyncontent">
+<div class="center"><img src="classVectorHandler__coll__graph.png" border="0" usemap="#aVectorHandler_coll__map" alt="Collaboration graph"/></div>
+<map name="aVectorHandler_coll__map" id="aVectorHandler_coll__map">
+<area shape="rect" title="Класс для обработки векторных запросов от клиентов" alt="" coords="5,95,120,121"/>
+<area shape="rect" href="classLogger.html" title="Класс для потокобезопасного логирования в файл" alt="" coords="29,5,96,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a1feb6e3585f2fd90f0c45153da70eb96"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#a1feb6e3585f2fd90f0c45153da70eb96">VectorHandler</a> (<a class="el" href="classLogger.html">Logger</a> &amp;logger)</td></tr>
+<tr class="memdesc:a1feb6e3585f2fd90f0c45153da70eb96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор обработчика векторов  <a href="classVectorHandler.html#a1feb6e3585f2fd90f0c45153da70eb96">Подробнее...</a><br /></td></tr>
+<tr class="separator:a1feb6e3585f2fd90f0c45153da70eb96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b2362b4b29cbcac0b56b1631e633a83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#a8b2362b4b29cbcac0b56b1631e633a83">process</a> (int client_fd, const std::string &amp;login)</td></tr>
+<tr class="memdesc:a8b2362b4b29cbcac0b56b1631e633a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основной метод обработки векторов  <a href="classVectorHandler.html#a8b2362b4b29cbcac0b56b1631e633a83">Подробнее...</a><br /></td></tr>
+<tr class="separator:a8b2362b4b29cbcac0b56b1631e633a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4c7cc69ec66d2b88dba7da3023ebdac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#ad4c7cc69ec66d2b88dba7da3023ebdac">readVector</a> (int client_fd, std::vector&lt; uint32_t &gt; &amp;vector)</td></tr>
+<tr class="memdesc:ad4c7cc69ec66d2b88dba7da3023ebdac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение вектора из сокета  <a href="classVectorHandler.html#ad4c7cc69ec66d2b88dba7da3023ebdac">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad4c7cc69ec66d2b88dba7da3023ebdac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac89d8c81df4ce33e2c508438bb0fae12"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#ac89d8c81df4ce33e2c508438bb0fae12">processVector</a> (const std::vector&lt; uint32_t &gt; &amp;vector)</td></tr>
+<tr class="memdesc:ac89d8c81df4ce33e2c508438bb0fae12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Обработка одного вектора  <a href="classVectorHandler.html#ac89d8c81df4ce33e2c508438bb0fae12">Подробнее...</a><br /></td></tr>
+<tr class="separator:ac89d8c81df4ce33e2c508438bb0fae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5">sendResult</a> (int client_fd, int32_t result)</td></tr>
+<tr class="memdesc:a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправка результата клиенту  <a href="classVectorHandler.html#a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:ad12df915d098eb6178ef5af85b683be6"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#ad12df915d098eb6178ef5af85b683be6">readVectorCount</a> (int client_fd)</td></tr>
+<tr class="memdesc:ad12df915d098eb6178ef5af85b683be6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Чтение количества векторов  <a href="classVectorHandler.html#ad12df915d098eb6178ef5af85b683be6">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad12df915d098eb6178ef5af85b683be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4331b2232b66af1900b95ac1dc8b6992"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#a4331b2232b66af1900b95ac1dc8b6992">validateVectorCount</a> (uint32_t count)</td></tr>
+<tr class="memdesc:a4331b2232b66af1900b95ac1dc8b6992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Валидация количества векторов  <a href="classVectorHandler.html#a4331b2232b66af1900b95ac1dc8b6992">Подробнее...</a><br /></td></tr>
+<tr class="separator:a4331b2232b66af1900b95ac1dc8b6992"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6678666050251b9331ced74544126737"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classVectorHandler.html#a6678666050251b9331ced74544126737">validateVectorSize</a> (uint32_t size)</td></tr>
+<tr class="memdesc:a6678666050251b9331ced74544126737"><td class="mdescLeft">&#160;</td><td class="mdescRight">Валидация размера вектора  <a href="classVectorHandler.html#a6678666050251b9331ced74544126737">Подробнее...</a><br /></td></tr>
+<tr class="separator:a6678666050251b9331ced74544126737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a2d503a514a96c8c29ff012cec881df0b"><td class="memItemLeft" align="right" valign="top"><a id="a2d503a514a96c8c29ff012cec881df0b" name="a2d503a514a96c8c29ff012cec881df0b"></a>
+<a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>logger_</b></td></tr>
+<tr class="memdesc:a2d503a514a96c8c29ff012cec881df0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ссылка на объект логгера <br /></td></tr>
+<tr class="separator:a2d503a514a96c8c29ff012cec881df0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс для обработки векторных запросов от клиентов </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a1feb6e3585f2fd90f0c45153da70eb96" name="a1feb6e3585f2fd90f0c45153da70eb96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1feb6e3585f2fd90f0c45153da70eb96">&#9670;&nbsp;</a></span>VectorHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">VectorHandler::VectorHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td>
+          <td class="paramname"><em>logger</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор обработчика векторов </p>
+<p >Создает обработчик векторных запросов</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Логгер для записи событий</td></tr>
+    <tr><td class="paramname">logger</td><td>Логгер для записи событий обработки векторов </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a8b2362b4b29cbcac0b56b1631e633a83" name="a8b2362b4b29cbcac0b56b1631e633a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b2362b4b29cbcac0b56b1631e633a83">&#9670;&nbsp;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void VectorHandler::process </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>client_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основной метод обработки векторов </p>
+<p >Основной метод обработки векторов для аутентифицированного клиента</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">login</td><td>Логин аутентифицированного пользователя </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>при ошибках обработки</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Процесс обработки:</p><ol type="1">
+<li>Чтение количества векторов (uint32_t, сетевой порядок байт)</li>
+<li>Для каждого вектора: a. Чтение размера вектора b. Чтение данных вектора c. Обработка вектора (суммирование с ограничением) d. Отправка результата клиенту</li>
+<li>Логирование прогресса и статистики <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">login</td><td>Логин аутентифицированного пользователя (для логирования) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>при ошибках чтения/записи или неверных данных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Максимальное количество векторов: 100,000 </dd>
+<dd>
+Максимальный размер одного вектора: 10,000,000 элементов </dd>
+<dd>
+Каждые 10 векторов логируется прогресс обработки </dd></dl>
+</li>
+</ol>
+
+</div>
+</div>
+<a id="ac89d8c81df4ce33e2c508438bb0fae12" name="ac89d8c81df4ce33e2c508438bb0fae12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac89d8c81df4ce33e2c508438bb0fae12">&#9670;&nbsp;</a></span>processVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t VectorHandler::processVector </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Обработка одного вектора </p>
+<p >Обрабатывает один вектор (суммирование с ограничением)</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Вектор для обработки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат обработки (сумма с ограничением)</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Вектор для обработки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Результат обработки (сумма элементов с ограничением) </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использует <a class="el" href="classVectorProcessor.html#acd1afc48ea00177af36466af2e981bf2" title="Суммирует элементы вектора с контролем переполнения">VectorProcessor::sumClamp()</a> для вычисления </dd></dl>
+
+</div>
+</div>
+<a id="ad4c7cc69ec66d2b88dba7da3023ebdac" name="ad4c7cc69ec66d2b88dba7da3023ebdac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4c7cc69ec66d2b88dba7da3023ebdac">&#9670;&nbsp;</a></span>readVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VectorHandler::readVector </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>client_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vector</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Чтение вектора из сокета </p>
+<p >Читает один вектор из сокета</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">vector</td><td>Ссылка на вектор для записи данных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если чтение успешно, false в противном случае</dd></dl>
+<p>Читает размер вектора (uint32_t), затем читает данные вектора. Размер вектора проверяется на корректность. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">vector</td><td>Ссылка на вектор для записи данных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если чтение успешно, false в противном случае </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использует recvAll() для гарантированного чтения всех данных </dd></dl>
+<dl class="section post"><dt>Постусловие</dt><dd>Если возвращено true, vector содержит прочитанные данные </dd></dl>
+
+</div>
+</div>
+<a id="ad12df915d098eb6178ef5af85b683be6" name="ad12df915d098eb6178ef5af85b683be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12df915d098eb6178ef5af85b683be6">&#9670;&nbsp;</a></span>readVectorCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t VectorHandler::readVectorCount </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>client_fd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Чтение количества векторов </p>
+<p >Читает количество векторов для обработки</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Количество векторов для обработки </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>при неверном количестве</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Количество векторов для обработки </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>при ошибке чтения или неверном значении </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Значение читается в сетевом порядке байт и проверяется на корректность </dd></dl>
+
+</div>
+</div>
+<a id="a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5" name="a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5">&#9670;&nbsp;</a></span>sendResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VectorHandler::sendResult </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>client_fd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправка результата клиенту </p>
+<p >Отправляет результат обработки вектора клиенту</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">result</td><td>Результат обработки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если отправка успешна, false в противном случае</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_fd</td><td>Файловый дескриптор клиентского сокета </td></tr>
+    <tr><td class="paramname">result</td><td>Результат обработки вектора </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если отправка успешна, false в противном случае </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Результат отправляется в сетевом порядке байт </dd></dl>
+
+</div>
+</div>
+<a id="a4331b2232b66af1900b95ac1dc8b6992" name="a4331b2232b66af1900b95ac1dc8b6992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4331b2232b66af1900b95ac1dc8b6992">&#9670;&nbsp;</a></span>validateVectorCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VectorHandler::validateVectorCount </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Валидация количества векторов </p>
+<p >Проверяет корректность количества векторов</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Проверяемое количество </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если количество допустимо, false в противном случае</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Проверяемое количество векторов </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если количество допустимо, false в противном случае </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Допустимый диапазон: 1..100,000 </dd></dl>
+
+</div>
+</div>
+<a id="a6678666050251b9331ced74544126737" name="a6678666050251b9331ced74544126737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6678666050251b9331ced74544126737">&#9670;&nbsp;</a></span>validateVectorSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool VectorHandler::validateVectorSize </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Валидация размера вектора </p>
+<p >Проверяет корректность размера вектора</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Проверяемый размер </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если размер допустим, false в противном случае</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Проверяемый размер вектора </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если размер допустим, false в противном случае </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Допустимый диапазон: 1..10,000,000 </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="vector__handler_8h_source.html">vector_handler.h</a></li>
+<li>vector_handler.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

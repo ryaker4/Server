@@ -1,0 +1,193 @@
+\hypertarget{classLogger}{}\doxysection{Класс Logger}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+Класс для потокобезопасного логирования в файл  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}{Logger}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Конструктор логгера \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}{$\sim$\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор логгера \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_afaac8d8aba7262900267f1e3779bd657}{info}} (const std\+::string \&msg)
+\begin{DoxyCompactList}\small\item\em Запись информационного сообщения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a52d98131462d3254f76fae8f43b2fa90}{error}} (const std\+::string \&msg)
+\begin{DoxyCompactList}\small\item\em Запись сообщения об ошибке \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a08e828ee35aa2e5ba7ed0dae32e25e41}{warning}} (const std\+::string \&msg)
+\begin{DoxyCompactList}\small\item\em Запись предупреждающего сообщения \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLogger_a7a49e3aa3f89fa4ea449cf56d84c0c65}{write}} (const std\+::string \&level, const std\+::string \&msg)
+\begin{DoxyCompactList}\small\item\em Основной метод записи в лог \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLogger_a6fffc5268771fe7b7571849fdc804110}\label{classLogger_a6fffc5268771fe7b7571849fdc804110}} 
+std\+::mutex {\bfseries mtx}
+\begin{DoxyCompactList}\small\item\em Мьютекс для синхронизации доступа к файлу \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classLogger_ab356cc478e6ea9969a2319694289e19a}\label{classLogger_ab356cc478e6ea9969a2319694289e19a}} 
+std\+::ofstream {\bfseries ofs}
+\begin{DoxyCompactList}\small\item\em Поток для записи в файл \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для потокобезопасного логирования в файл 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}\label{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Конструктор логгера 
+
+Создает логгер с привязкой к файлу
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Имя файла для записи логов \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & если файл не может быть открыт\\
+\hline
+\end{DoxyExceptions}
+Открывает файл для записи в режиме добавления (append). Если файл не существует, он будет создан. Если файл существует, новые записи будут добавляться в конец. 
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Путь к файлу лога \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & если файл не может быть открыт для записи \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Заметки}
+Формат открытия файла\+: std\+::ios\+::app (добавление в конец) 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}\label{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}} 
+\index{Logger@{Logger}!````~Logger@{$\sim$Logger}}
+\index{````~Logger@{$\sim$Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Logger()}{~Logger()}}
+{\footnotesize\ttfamily Logger\+::$\sim$\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Деструктор логгера 
+
+Закрывает файловый поток, если он был открыт. Гарантирует корректное освобождение ресурсов. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classLogger_a52d98131462d3254f76fae8f43b2fa90}\label{classLogger_a52d98131462d3254f76fae8f43b2fa90}} 
+\index{Logger@{Logger}!error@{error}}
+\index{error@{error}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily void Logger\+::error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Запись сообщения об ошибке 
+
+Записывает сообщение об ошибке в лог
+
+
+\begin{DoxyParams}{Аргументы}
+{\em msg} & Текст сообщения\\
+\hline
+{\em msg} & Текст сообщения об ошибке \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Заметки}
+Уровень\+: ERROR 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLogger_afaac8d8aba7262900267f1e3779bd657}\label{classLogger_afaac8d8aba7262900267f1e3779bd657}} 
+\index{Logger@{Logger}!info@{info}}
+\index{info@{info}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily void Logger\+::info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Запись информационного сообщения 
+
+Записывает информационное сообщение в лог
+
+
+\begin{DoxyParams}{Аргументы}
+{\em msg} & Текст сообщения\\
+\hline
+{\em msg} & Текст информационного сообщения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Заметки}
+Уровень\+: INFO 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLogger_a08e828ee35aa2e5ba7ed0dae32e25e41}\label{classLogger_a08e828ee35aa2e5ba7ed0dae32e25e41}} 
+\index{Logger@{Logger}!warning@{warning}}
+\index{warning@{warning}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{warning()}{warning()}}
+{\footnotesize\ttfamily void Logger\+::warning (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+Запись предупреждающего сообщения 
+
+Записывает предупреждающее сообщение в лог
+
+
+\begin{DoxyParams}{Аргументы}
+{\em msg} & Текст сообщения\\
+\hline
+{\em msg} & Текст предупреждающего сообщения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Заметки}
+Уровень\+: WARNING 
+\end{DoxyNote}
+\mbox{\Hypertarget{classLogger_a7a49e3aa3f89fa4ea449cf56d84c0c65}\label{classLogger_a7a49e3aa3f89fa4ea449cf56d84c0c65}} 
+\index{Logger@{Logger}!write@{write}}
+\index{write@{write}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Logger\+::write (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{level,  }\item[{const std\+::string \&}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Основной метод записи в лог 
+
+Основной метод записи сообщения в лог
+
+
+\begin{DoxyParams}{Аргументы}
+{\em level} & Уровень логирования \\
+\hline
+{\em msg} & Текст сообщения\\
+\hline
+\end{DoxyParams}
+Формат записи\+: \mbox{[}YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:SS\mbox{]} LEVEL\+: сообщение Время берется с точностью до секунды. Метод потокобезопасен благодаря использованию мьютекса. 
+\begin{DoxyParams}{Аргументы}
+{\em level} & Уровень логирования (INFO, ERROR, WARNING) \\
+\hline
+{\em msg} & Текст сообщения для записи \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Заметки}
+Использует локальную блокировку мьютекса для предотвращения пересечения записей от разных потоков 
+\end{DoxyNote}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+logger.\+h\item 
+logger.\+cpp\end{DoxyCompactItemize}

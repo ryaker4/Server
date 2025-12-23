@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server: Класс AuthDB</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classAuthDB-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс AuthDB</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для работы с базой данных аутентификации  
+ <a href="classAuthDB.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="authdb_8h_source.html">authdb.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ac5959489691973607af807c4f11a8e6a"><td class="memItemLeft" align="right" valign="top"><a id="ac5959489691973607af807c4f11a8e6a" name="ac5959489691973607af807c4f11a8e6a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>AuthDB</b> ()=default</td></tr>
+<tr class="memdesc:ac5959489691973607af807c4f11a8e6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор по умолчанию <br /></td></tr>
+<tr class="separator:ac5959489691973607af807c4f11a8e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee9e0ed263a18fd42c55660df28a5f6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthDB.html#aee9e0ed263a18fd42c55660df28a5f6e">loadFromFile</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:aee9e0ed263a18fd42c55660df28a5f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Загрузка базы данных из файла  <a href="classAuthDB.html#aee9e0ed263a18fd42c55660df28a5f6e">Подробнее...</a><br /></td></tr>
+<tr class="separator:aee9e0ed263a18fd42c55660df28a5f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730f5d64538e1c5e4b787bbd7bd1dce3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthDB.html#a730f5d64538e1c5e4b787bbd7bd1dce3">findPassword</a> (const std::string &amp;login, std::string &amp;outPassword) const</td></tr>
+<tr class="memdesc:a730f5d64538e1c5e4b787bbd7bd1dce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Поиск пароля по логину  <a href="classAuthDB.html#a730f5d64538e1c5e4b787bbd7bd1dce3">Подробнее...</a><br /></td></tr>
+<tr class="separator:a730f5d64538e1c5e4b787bbd7bd1dce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:ac3dceca3eb00a099dcbf50ba37724a3b"><td class="memItemLeft" align="right" valign="top"><a id="ac3dceca3eb00a099dcbf50ba37724a3b" name="ac3dceca3eb00a099dcbf50ba37724a3b"></a>
+std::unordered_map&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>db</b></td></tr>
+<tr class="memdesc:ac3dceca3eb00a099dcbf50ba37724a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Хэш-таблица для хранения пар логин-пароль <br /></td></tr>
+<tr class="separator:ac3dceca3eb00a099dcbf50ba37724a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс для работы с базой данных аутентификации </p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a730f5d64538e1c5e4b787bbd7bd1dce3" name="a730f5d64538e1c5e4b787bbd7bd1dce3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730f5d64538e1c5e4b787bbd7bd1dce3">&#9670;&nbsp;</a></span>findPassword()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AuthDB::findPassword </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>outPassword</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Поиск пароля по логину </p>
+<p >Ищет пароль по логину в базе данных</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя </td></tr>
+    <tr><td class="paramname">outPassword</td><td>Ссылка на строку для записи найденного пароля </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если логин найден, false в противном случае</dd></dl>
+<p>Выполняет поиск в хэш-таблице по ключу (логину). Если логин найден, пароль записывается в outPassword. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин пользователя для поиска </td></tr>
+    <tr><td class="paramname">outPassword</td><td>Ссылка на строку для записи найденного пароля </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true если логин найден в базе данных, false если логин отсутствует </dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Время поиска: в среднем O(1), в худшем случае O(n) </dd></dl>
+<dl class="section post"><dt>Постусловие</dt><dd>Если возвращено true, outPassword содержит пароль пользователя Если возвращено false, outPassword остается неизменным </dd></dl>
+
+</div>
+</div>
+<a id="aee9e0ed263a18fd42c55660df28a5f6e" name="aee9e0ed263a18fd42c55660df28a5f6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee9e0ed263a18fd42c55660df28a5f6e">&#9670;&nbsp;</a></span>loadFromFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AuthDB::loadFromFile </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Загрузка базы данных из файла </p>
+<p >Загружает базу данных клиентов из текстового файла</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Имя файла в формате "login:password" по строкам </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>если файл не может быть открыт</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Формат файла: каждая строка содержит пару "логин:пароль" Пустые строки игнорируются. Если формат строки некорректен (нет символа ':'), она пропускается. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Путь к файлу базы данных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>если файл не может быть открыт </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Предыдущее содержимое базы данных очищается перед загрузкой </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Файл должен быть в формате UTF-8 или ASCII </dd></dl>
+<dl class="section post"><dt>Постусловие</dt><dd>База данных содержит все корректные пары логин-пароль из файла </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="authdb_8h_source.html">authdb.h</a></li>
+<li>authdb.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

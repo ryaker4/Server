@@ -1,0 +1,5 @@
+<map id="ServerInterface" name="ServerInterface">
+<area shape="rect" id="node1" title="Класс для обработки параметров командной строки сервера" alt="" coords="23,184,146,211"/>
+<area shape="rect" id="node2" href="$structServerInterface_1_1Impl.html" title=" " alt="" coords="5,95,164,121"/>
+<area shape="rect" id="node3" href="$structServerParams.html" title="Структура параметров конфигурации сервера" alt="" coords="29,5,141,32"/>
+</map>

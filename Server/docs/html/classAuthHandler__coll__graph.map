@@ -1,0 +1,5 @@
+<map id="AuthHandler" name="AuthHandler">
+<area shape="rect" id="node1" title="Класс для обработки аутентификации клиентов" alt="" coords="34,95,137,121"/>
+<area shape="rect" id="node2" href="$classLogger.html" title="Класс для потокобезопасного логирования в файл" alt="" coords="5,5,72,32"/>
+<area shape="rect" id="node3" href="$classAuthDB.html" title="Класс для работы с базой данных аутентификации" alt="" coords="97,5,167,32"/>
+</map>

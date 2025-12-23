@@ -1,0 +1,34 @@
+\hypertarget{auth__handler_8h_source}{}\doxysection{auth\+\_\+handler.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef AUTH\_HANDLER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define AUTH\_HANDLER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}logger.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}authdb.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{classAuthHandler}{AuthHandler}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{classAuthHandler_a89b386feb8ae65e229533d639c1bd9d7}{AuthHandler}}(\mbox{\hyperlink{classLogger}{Logger}}\& logger, \mbox{\hyperlink{classAuthDB}{AuthDB}}\& authDb);}
+\DoxyCodeLine{20     }
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAuthHandler_ae03e6c7f59e44a4b64f2605bcd64defe}{authenticate}}(\textcolor{keywordtype}{int} client\_fd, std::string\& out\_login);}
+\DoxyCodeLine{28     }
+\DoxyCodeLine{37     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAuthHandler_a962c9d168c984f23d514d8b927e0bb56}{parseAuthData}}(\textcolor{keyword}{const} std::string\& data, std::string\& login, }
+\DoxyCodeLine{38                       std::string\& salt\_hex, std::string\& hash\_hex);}
+\DoxyCodeLine{39     }
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAuthHandler_aa9439b20f77eceaa6e1c9dbf853ef359}{verifyHash}}(\textcolor{keyword}{const} std::string\& login, \textcolor{keyword}{const} std::string\& password,}
+\DoxyCodeLine{49                    \textcolor{keyword}{const} std::string\& salt\_hex, \textcolor{keyword}{const} std::string\& client\_hash\_hex);}
+\DoxyCodeLine{50     }
+\DoxyCodeLine{51 \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     \mbox{\hyperlink{classLogger}{Logger}}\& \mbox{\hyperlink{classAuthHandler_a5cd17eb68b8762da4d79b69998cfebdb}{logger\_}};   }
+\DoxyCodeLine{53     \mbox{\hyperlink{classAuthDB}{AuthDB}}\& \mbox{\hyperlink{classAuthHandler_a05ea466619ea05e1fee9ca841975d7a0}{authDb\_}};   }
+\DoxyCodeLine{54     }
+\DoxyCodeLine{61     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAuthHandler_ad5c77c61fbc74effb7a5551eef772e6c}{sendResponse}}(\textcolor{keywordtype}{int} client\_fd, \textcolor{keywordtype}{bool} success);}
+\DoxyCodeLine{62     }
+\DoxyCodeLine{68     std::string \mbox{\hyperlink{classAuthHandler_acbe8a3020d96311be3c3a4e9101718b0}{computeSHA224}}(\textcolor{keyword}{const} std::string\& data);}
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

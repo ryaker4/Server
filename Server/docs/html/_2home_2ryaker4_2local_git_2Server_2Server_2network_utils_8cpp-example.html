@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server: /home/ryaker4/local_git/Server/Server/network_utils.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">/home/ryaker4/local_git/Server/Server/network_utils.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<p >Преобразует массив байт в шестнадцатеричную строку в верхнем регистре</p>
+<p >Преобразует массив байт в шестнадцатеричную строку в верхнем регистре Каждый байт преобразуется в два шестнадцатеричных символа. Используется для удобного отображения бинарных данных в логах и для передачи хэшей в текстовом формате. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Указатель на массив байт </td></tr>
+    <tr><td class="paramname">length</td><td>Количество байт для преобразования </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Строка, содержащая шестнадцатеричное представление данных</dd></dl>
+<p>bytesToHex({0xDE, 0xAD, 0xBE, 0xEF}, 4) -&gt; "DEADBEEF"</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;network_utils.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;arpa/inet.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>NetworkUtils {</div>
+<div class="line"> </div>
+<div class="line">ssize_t recvAll(<span class="keywordtype">int</span> fd, <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len) {</div>
+<div class="line">    <span class="keywordtype">char</span>* p = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(buf);</div>
+<div class="line">    <span class="keywordtype">size_t</span> rem = len;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span>(rem &gt; 0) {</div>
+<div class="line">        ssize_t r = recv(fd, p, rem, 0);</div>
+<div class="line">        <span class="keywordflow">if</span>(r &lt;= 0)</div>
+<div class="line">            <span class="keywordflow">return</span> r;</div>
+<div class="line">        p += r;</div>
+<div class="line">        rem -= r;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>ssize_t<span class="keyword">&gt;</span>(len);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">std::string bytesToHex(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data, <span class="keywordtype">size_t</span> length) {</div>
+<div class="line">    std::stringstream ss;</div>
+<div class="line">    ss &lt;&lt; std::hex &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; std::uppercase;</div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; length; ++i) {</div>
+<div class="line">        ss &lt;&lt; std::setw(2) &lt;&lt; static_cast&lt;int&gt;(data[i]);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> ss.str();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> hexToBytes(<span class="keyword">const</span> std::string&amp; hex, <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* output, <span class="keywordtype">size_t</span> output_len) {</div>
+<div class="line">    <span class="keywordflow">if</span>(hex.length() != output_len * 2) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">auto</span> hexCharToByte = [](<span class="keywordtype">char</span> c) -&gt; <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> {</div>
+<div class="line">        <span class="keywordflow">if</span>(c &gt;= <span class="charliteral">&#39;0&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;9&#39;</span>)</div>
+<div class="line">            <span class="keywordflow">return</span> c - <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line">        <span class="keywordflow">if</span>(c &gt;= <span class="charliteral">&#39;a&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;f&#39;</span>)</div>
+<div class="line">            <span class="keywordflow">return</span> 10 + (c - <span class="charliteral">&#39;a&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span>(c &gt;= <span class="charliteral">&#39;A&#39;</span> &amp;&amp; c &lt;= <span class="charliteral">&#39;F&#39;</span>)</div>
+<div class="line">            <span class="keywordflow">return</span> 10 + (c - <span class="charliteral">&#39;A&#39;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> 0xFF;</div>
+<div class="line">    };</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; output_len; i++) {</div>
+<div class="line">        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> high = hexCharToByte(hex[i * 2]);</div>
+<div class="line">        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> low = hexCharToByte(hex[i * 2 + 1]);</div>
+<div class="line">        <span class="keywordflow">if</span>(high == 0xFF || low == 0xFF) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        output[i] = (high &lt;&lt; 4) | low;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">std::string sockaddrToString(<span class="keyword">const</span> sockaddr_in&amp; addr) {</div>
+<div class="line">    <span class="keywordtype">char</span> ipbuf[INET_ADDRSTRLEN];</div>
+<div class="line">    inet_ntop(AF_INET, &amp;addr.sin_addr, ipbuf, <span class="keyword">sizeof</span>(ipbuf));</div>
+<div class="line">    <span class="keywordflow">return</span> std::string(ipbuf) + <span class="stringliteral">&quot;:&quot;</span> + std::to_string(ntohs(addr.sin_port));</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> isValidHex(<span class="keyword">const</span> std::string&amp; str) {</div>
+<div class="line">    <span class="keywordflow">return</span> std::all_of(str.begin(), str.end(), [](<span class="keywordtype">char</span> c) {</div>
+<div class="line">        return (c &gt;= <span class="stringliteral">&#39;0&#39;</span> &amp;&amp; c &lt;= <span class="stringliteral">&#39;9&#39;</span>) || </div>
+<div class="line">               (c &gt;= <span class="stringliteral">&#39;a&#39;</span> &amp;&amp; c &lt;= <span class="stringliteral">&#39;f&#39;</span>) || </div>
+<div class="line">               (c &gt;= <span class="stringliteral">&#39;A&#39;</span> &amp;&amp; c &lt;= <span class="stringliteral">&#39;F&#39;</span>);</div>
+<div class="line">    });</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">uint32_t readNetworkUint32(<span class="keywordtype">int</span> fd) {</div>
+<div class="line">    uint32_t value;</div>
+<div class="line">    <span class="keywordflow">if</span>(recvAll(fd, &amp;value, 4) != 4) {</div>
+<div class="line">        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Failed to read uint32&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> value;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> sendNetworkUint32(<span class="keywordtype">int</span> fd, uint32_t value) {</div>
+<div class="line">    <span class="keywordflow">return</span> send(fd, &amp;value, 4, 0) == 4;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">} </div>
+</div><!-- fragment --> </div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

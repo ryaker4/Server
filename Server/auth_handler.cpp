@@ -8,9 +8,30 @@
 #include <stdexcept>
 #include <cstring>
 
+/**
+ * @brief Создает обработчик аутентификации
+ * @param logger Ссылка на логгер для записи событий аутентификации
+ * @param authDb Ссылка на базу данных аутентификации
+ */
 AuthHandler::AuthHandler(Logger& logger, AuthDB& authDb) 
     : logger_(logger), authDb_(authDb) {}
 
+/**
+ * @brief Выполняет процесс аутентификации клиента
+ * @details Процесс аутентификации состоит из следующих шагов:
+ *          1. Чтение данных аутентификации из сокета (до 255 байт)
+ *          2. Парсинг данных: извлечение логина, соли и хэша
+ *          3. Поиск пароля в базе данных по логину
+ *          4. Вычисление хэша на стороне сервера и сравнение с клиентским
+ *          5. Отправка результата клиенту ("OK" или "ERR")
+ * @param client_fd Файловый дескриптор клиентского сокета
+ * @param out_login Ссылка на строку для записи аутентифицированного логина
+ * @return true если аутентификация успешна, false в противном случае
+ * @note Максимальный размер данных аутентификации: 255 байт
+ * @note Формат данных: <логин><72 шестнадцатеричных символа>
+ *       где 72 символа = 16 символов соли + 56 символов хэша SHA224
+ * @post Если аутентификация успешна, out_login содержит логин клиента
+ */
 bool AuthHandler::authenticate(int client_fd, std::string& out_login) {
     const size_t BUFFER_SIZE = 256;
     char buffer[BUFFER_SIZE];
@@ -54,6 +75,20 @@ bool AuthHandler::authenticate(int client_fd, std::string& out_login) {
     return sendResponse(client_fd, true);
 }
 
+/**
+ * @brief Парсит данные аутентификации, полученные от клиента
+ * @details Формат данных: все символы кроме последних 72 - логин,
+ *          последние 72 символа - шестнадцатеричные данные (16 символов соли + 56 символов хэша)
+ * @param data Сырые данные от клиента (логин + hex)
+ * @param login Ссылка на строку для записи извлеченного логина
+ * @param salt_hex Ссылка на строку для записи соли в hex (16 символов)
+ * @param hash_hex Ссылка на строку для записи хэша в hex (56 символов)
+ * @return true если парсинг успешен, false в противном случае
+ * @pre Длина data должна быть не менее 72 символов
+ * @pre Последние 72 символа должны быть корректной hex строкой
+ * @post Если возвращено true, параметры содержат извлеченные данные
+ * @note Логин может быть пустым, если data состоит ровно из 72 hex символов
+ */
 bool AuthHandler::parseAuthData(const std::string& data, std::string& login, 
                                std::string& salt_hex, std::string& hash_hex) {
     // Проверяем, что строка содержит хотя бы 72 символа
@@ -86,6 +121,15 @@ bool AuthHandler::parseAuthData(const std::string& data, std::string& login,
     return true;
 }
 
+/**
+ * @brief Вычисляет SHA224 хэш от переданных данных
+ * @details Использует библиотеку CryptoPP для вычисления хэша.
+ *          Результат возвращается в виде шестнадцатеричной строки.
+ * @param data Строка данных для хэширования
+ * @return Хэш SHA224 в виде hex строки (56 символов)
+ * @note Размер хэша SHA224: 28 байт (224 бита) = 56 hex символов
+ * @see CryptoPP::SHA224
+ */
 std::string AuthHandler::computeSHA224(const std::string& data) {
     using namespace CryptoPP;
     
@@ -98,6 +142,20 @@ std::string AuthHandler::computeSHA224(const std::string& data) {
     return NetworkUtils::bytesToHex(hash.data(), hash.size());
 }
 
+/**
+ * @brief Проверяет корректность хэша пароля
+ * @details Процесс проверки:
+ *          1. Конкатенирует соль (hex) и пароль (plaintext)
+ *          2. Вычисляет SHA224 от результата конкатенации
+ *          3. Сравнивает полученный хэш с хэшем от клиента
+ * @param login Логин пользователя (для логирования)
+ * @param password Пароль из базы данных в plaintext
+ * @param salt_hex Соль в hex формате (16 символов, 8 байт)
+ * @param client_hash_hex Хэш от клиента в hex формате (56 символов)
+ * @return true если хэши совпадают, false в противном случае
+ * @note Используется схема: hash = SHA224(salt || password)
+ * @note Сравнение выполняется с защитой от timing-атак через VerifyBufsEqual
+ */
 bool AuthHandler::verifyHash(const std::string& login, const std::string& password,
                            const std::string& salt_hex, const std::string& client_hash_hex) {
     logger_.info("=== HASH VERIFICATION ===");
@@ -127,6 +185,14 @@ bool AuthHandler::verifyHash(const std::string& login, const std::string& passwo
     return CryptoPP::VerifyBufsEqual(server_hash, client_hash, 28);
 }
 
+/**
+ * @brief Отправляет клиенту результат аутентификации
+ * @param client_fd Файловый дескриптор клиентского сокета
+ * @param success Результат аутентификации
+ * @return true если отправка успешна, false в противном случае
+ * @note Формат ответа: "OK" при успехе, "ERR" при неудаче
+ * @note Длина ответа: 2 байта для "OK", 3 байта для "ERR"
+ */
 bool AuthHandler::sendResponse(int client_fd, bool success) {
     const char* response = success ? "OK" : "ERR";
     size_t len = strlen(response);

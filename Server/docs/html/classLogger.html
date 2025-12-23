@@ -1,0 +1,343 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server: Класс Logger</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classLogger-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс Logger</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для потокобезопасного логирования в файл  
+ <a href="classLogger.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="logger_8h_source.html">logger.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a4f2ee02db1d03a83b6b9b43808e09f15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a4f2ee02db1d03a83b6b9b43808e09f15">Logger</a> (const std::string &amp;filename)</td></tr>
+<tr class="memdesc:a4f2ee02db1d03a83b6b9b43808e09f15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор логгера  <a href="classLogger.html#a4f2ee02db1d03a83b6b9b43808e09f15">Подробнее...</a><br /></td></tr>
+<tr class="separator:a4f2ee02db1d03a83b6b9b43808e09f15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb668a9e186a25fbaad2e4af6d1ed00a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#acb668a9e186a25fbaad2e4af6d1ed00a">~Logger</a> ()</td></tr>
+<tr class="memdesc:acb668a9e186a25fbaad2e4af6d1ed00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор логгера  <a href="classLogger.html#acb668a9e186a25fbaad2e4af6d1ed00a">Подробнее...</a><br /></td></tr>
+<tr class="separator:acb668a9e186a25fbaad2e4af6d1ed00a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afaac8d8aba7262900267f1e3779bd657"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#afaac8d8aba7262900267f1e3779bd657">info</a> (const std::string &amp;msg)</td></tr>
+<tr class="memdesc:afaac8d8aba7262900267f1e3779bd657"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись информационного сообщения  <a href="classLogger.html#afaac8d8aba7262900267f1e3779bd657">Подробнее...</a><br /></td></tr>
+<tr class="separator:afaac8d8aba7262900267f1e3779bd657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52d98131462d3254f76fae8f43b2fa90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a52d98131462d3254f76fae8f43b2fa90">error</a> (const std::string &amp;msg)</td></tr>
+<tr class="memdesc:a52d98131462d3254f76fae8f43b2fa90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись сообщения об ошибке  <a href="classLogger.html#a52d98131462d3254f76fae8f43b2fa90">Подробнее...</a><br /></td></tr>
+<tr class="separator:a52d98131462d3254f76fae8f43b2fa90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08e828ee35aa2e5ba7ed0dae32e25e41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a08e828ee35aa2e5ba7ed0dae32e25e41">warning</a> (const std::string &amp;msg)</td></tr>
+<tr class="memdesc:a08e828ee35aa2e5ba7ed0dae32e25e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запись предупреждающего сообщения  <a href="classLogger.html#a08e828ee35aa2e5ba7ed0dae32e25e41">Подробнее...</a><br /></td></tr>
+<tr class="separator:a08e828ee35aa2e5ba7ed0dae32e25e41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a7a49e3aa3f89fa4ea449cf56d84c0c65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLogger.html#a7a49e3aa3f89fa4ea449cf56d84c0c65">write</a> (const std::string &amp;level, const std::string &amp;msg)</td></tr>
+<tr class="memdesc:a7a49e3aa3f89fa4ea449cf56d84c0c65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основной метод записи в лог  <a href="classLogger.html#a7a49e3aa3f89fa4ea449cf56d84c0c65">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7a49e3aa3f89fa4ea449cf56d84c0c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a6fffc5268771fe7b7571849fdc804110"><td class="memItemLeft" align="right" valign="top"><a id="a6fffc5268771fe7b7571849fdc804110" name="a6fffc5268771fe7b7571849fdc804110"></a>
+std::mutex&#160;</td><td class="memItemRight" valign="bottom"><b>mtx</b></td></tr>
+<tr class="memdesc:a6fffc5268771fe7b7571849fdc804110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Мьютекс для синхронизации доступа к файлу <br /></td></tr>
+<tr class="separator:a6fffc5268771fe7b7571849fdc804110"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab356cc478e6ea9969a2319694289e19a"><td class="memItemLeft" align="right" valign="top"><a id="ab356cc478e6ea9969a2319694289e19a" name="ab356cc478e6ea9969a2319694289e19a"></a>
+std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><b>ofs</b></td></tr>
+<tr class="memdesc:ab356cc478e6ea9969a2319694289e19a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Поток для записи в файл <br /></td></tr>
+<tr class="separator:ab356cc478e6ea9969a2319694289e19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс для потокобезопасного логирования в файл </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a4f2ee02db1d03a83b6b9b43808e09f15" name="a4f2ee02db1d03a83b6b9b43808e09f15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f2ee02db1d03a83b6b9b43808e09f15">&#9670;&nbsp;</a></span>Logger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Logger::Logger </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конструктор логгера </p>
+<p >Создает логгер с привязкой к файлу</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Имя файла для записи логов </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>если файл не может быть открыт</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Открывает файл для записи в режиме добавления (append). Если файл не существует, он будет создан. Если файл существует, новые записи будут добавляться в конец. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Путь к файлу лога </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>если файл не может быть открыт для записи </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Формат открытия файла: std::ios::app (добавление в конец) </dd></dl>
+
+</div>
+</div>
+<a id="acb668a9e186a25fbaad2e4af6d1ed00a" name="acb668a9e186a25fbaad2e4af6d1ed00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb668a9e186a25fbaad2e4af6d1ed00a">&#9670;&nbsp;</a></span>~Logger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Logger::~Logger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Деструктор логгера </p>
+<p >Закрывает файловый поток, если он был открыт. Гарантирует корректное освобождение ресурсов. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a52d98131462d3254f76fae8f43b2fa90" name="a52d98131462d3254f76fae8f43b2fa90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d98131462d3254f76fae8f43b2fa90">&#9670;&nbsp;</a></span>error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::error </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запись сообщения об ошибке </p>
+<p >Записывает сообщение об ошибке в лог</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Текст сообщения</td></tr>
+    <tr><td class="paramname">msg</td><td>Текст сообщения об ошибке </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Уровень: ERROR </dd></dl>
+
+</div>
+</div>
+<a id="afaac8d8aba7262900267f1e3779bd657" name="afaac8d8aba7262900267f1e3779bd657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaac8d8aba7262900267f1e3779bd657">&#9670;&nbsp;</a></span>info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::info </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запись информационного сообщения </p>
+<p >Записывает информационное сообщение в лог</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Текст сообщения</td></tr>
+    <tr><td class="paramname">msg</td><td>Текст информационного сообщения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Уровень: INFO </dd></dl>
+
+</div>
+</div>
+<a id="a08e828ee35aa2e5ba7ed0dae32e25e41" name="a08e828ee35aa2e5ba7ed0dae32e25e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08e828ee35aa2e5ba7ed0dae32e25e41">&#9670;&nbsp;</a></span>warning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::warning </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Запись предупреждающего сообщения </p>
+<p >Записывает предупреждающее сообщение в лог</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">msg</td><td>Текст сообщения</td></tr>
+    <tr><td class="paramname">msg</td><td>Текст предупреждающего сообщения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Уровень: WARNING </dd></dl>
+
+</div>
+</div>
+<a id="a7a49e3aa3f89fa4ea449cf56d84c0c65" name="a7a49e3aa3f89fa4ea449cf56d84c0c65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a49e3aa3f89fa4ea449cf56d84c0c65">&#9670;&nbsp;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Logger::write </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>msg</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Основной метод записи в лог </p>
+<p >Основной метод записи сообщения в лог</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>Уровень логирования </td></tr>
+    <tr><td class="paramname">msg</td><td>Текст сообщения</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Формат записи: [YYYY-MM-DD HH:MM:SS] LEVEL: сообщение Время берется с точностью до секунды. Метод потокобезопасен благодаря использованию мьютекса. </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>Уровень логирования (INFO, ERROR, WARNING) </td></tr>
+    <tr><td class="paramname">msg</td><td>Текст сообщения для записи </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использует локальную блокировку мьютекса для предотвращения пересечения записей от разных потоков </dd></dl>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li><a class="el" href="logger_8h_source.html">logger.h</a></li>
+<li>logger.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

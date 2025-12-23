@@ -1,0 +1,118 @@
+\hypertarget{classAuthDB}{}\doxysection{Класс Auth\+DB}
+\label{classAuthDB}\index{AuthDB@{AuthDB}}
+
+
+Класс для работы с базой данных аутентификации  
+
+
+
+
+{\ttfamily \#include $<$authdb.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAuthDB_ac5959489691973607af807c4f11a8e6a}\label{classAuthDB_ac5959489691973607af807c4f11a8e6a}} 
+{\bfseries Auth\+DB} ()=default
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classAuthDB_aee9e0ed263a18fd42c55660df28a5f6e}{load\+From\+File}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Загрузка базы данных из файла \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAuthDB_a730f5d64538e1c5e4b787bbd7bd1dce3}{find\+Password}} (const std\+::string \&login, std\+::string \&out\+Password) const
+\begin{DoxyCompactList}\small\item\em Поиск пароля по логину \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAuthDB_ac3dceca3eb00a099dcbf50ba37724a3b}\label{classAuthDB_ac3dceca3eb00a099dcbf50ba37724a3b}} 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ {\bfseries db}
+\begin{DoxyCompactList}\small\item\em Хэш-\/таблица для хранения пар логин-\/пароль \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для работы с базой данных аутентификации 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classAuthDB_a730f5d64538e1c5e4b787bbd7bd1dce3}\label{classAuthDB_a730f5d64538e1c5e4b787bbd7bd1dce3}} 
+\index{AuthDB@{AuthDB}!findPassword@{findPassword}}
+\index{findPassword@{findPassword}!AuthDB@{AuthDB}}
+\doxysubsubsection{\texorpdfstring{findPassword()}{findPassword()}}
+{\footnotesize\ttfamily bool Auth\+DB\+::find\+Password (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login,  }\item[{std\+::string \&}]{out\+Password }\end{DoxyParamCaption}) const}
+
+
+
+Поиск пароля по логину 
+
+Ищет пароль по логину в базе данных
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя \\
+\hline
+{\em out\+Password} & Ссылка на строку для записи найденного пароля \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если логин найден, false в противном случае
+\end{DoxyReturn}
+Выполняет поиск в хэш-\/таблице по ключу (логину). Если логин найден, пароль записывается в out\+Password. 
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя для поиска \\
+\hline
+{\em out\+Password} & Ссылка на строку для записи найденного пароля \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если логин найден в базе данных, false если логин отсутствует 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Время поиска\+: в среднем O(1), в худшем случае O(n) 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Постусловие}
+Если возвращено true, out\+Password содержит пароль пользователя Если возвращено false, out\+Password остается неизменным 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classAuthDB_aee9e0ed263a18fd42c55660df28a5f6e}\label{classAuthDB_aee9e0ed263a18fd42c55660df28a5f6e}} 
+\index{AuthDB@{AuthDB}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!AuthDB@{AuthDB}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily void Auth\+DB\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Загрузка базы данных из файла 
+
+Загружает базу данных клиентов из текстового файла
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Имя файла в формате \char`\"{}login\+:password\char`\"{} по строкам \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & если файл не может быть открыт\\
+\hline
+\end{DoxyExceptions}
+Формат файла\+: каждая строка содержит пару \char`\"{}логин\+:пароль\char`\"{} Пустые строки игнорируются. Если формат строки некорректен (нет символа \textquotesingle{}\+:\textquotesingle{}), она пропускается. 
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Путь к файлу базы данных \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em std\+::runtime\+\_\+error} & если файл не может быть открыт \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Заметки}
+Предыдущее содержимое базы данных очищается перед загрузкой 
+\end{DoxyNote}
+\begin{DoxyWarning}{Предупреждения}
+Файл должен быть в формате UTF-\/8 или ASCII 
+\end{DoxyWarning}
+\begin{DoxyPostcond}{Постусловие}
+База данных содержит все корректные пары логин-\/пароль из файла 
+\end{DoxyPostcond}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+authdb.\+h\item 
+authdb.\+cpp\end{DoxyCompactItemize}

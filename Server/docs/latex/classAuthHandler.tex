@@ -1,0 +1,305 @@
+\hypertarget{classAuthHandler}{}\doxysection{Класс Auth\+Handler}
+\label{classAuthHandler}\index{AuthHandler@{AuthHandler}}
+
+
+Класс для обработки аутентификации клиентов  
+
+
+
+
+{\ttfamily \#include $<$auth\+\_\+handler.\+h$>$}
+
+
+
+Граф связей класса Auth\+Handler\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=203pt]{classAuthHandler__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAuthHandler_a89b386feb8ae65e229533d639c1bd9d7}{Auth\+Handler}} (\mbox{\hyperlink{classLogger}{Logger}} \&logger, \mbox{\hyperlink{classAuthDB}{Auth\+DB}} \&auth\+Db)
+\begin{DoxyCompactList}\small\item\em Конструктор обработчика аутентификации \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAuthHandler_ae03e6c7f59e44a4b64f2605bcd64defe}{authenticate}} (int client\+\_\+fd, std\+::string \&out\+\_\+login)
+\begin{DoxyCompactList}\small\item\em Основной метод аутентификации \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAuthHandler_a962c9d168c984f23d514d8b927e0bb56}{parse\+Auth\+Data}} (const std\+::string \&data, std\+::string \&login, std\+::string \&salt\+\_\+hex, std\+::string \&hash\+\_\+hex)
+\begin{DoxyCompactList}\small\item\em Парсинг данных аутентификации \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classAuthHandler_aa9439b20f77eceaa6e1c9dbf853ef359}{verify\+Hash}} (const std\+::string \&login, const std\+::string \&password, const std\+::string \&salt\+\_\+hex, const std\+::string \&client\+\_\+hash\+\_\+hex)
+\begin{DoxyCompactList}\small\item\em Проверка хэша пароля \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classAuthHandler_ad5c77c61fbc74effb7a5551eef772e6c}{send\+Response}} (int client\+\_\+fd, bool success)
+\begin{DoxyCompactList}\small\item\em Отправка ответа клиенту \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classAuthHandler_acbe8a3020d96311be3c3a4e9101718b0}{compute\+SHA224}} (const std\+::string \&data)
+\begin{DoxyCompactList}\small\item\em Вычисление SHA224 хэша \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAuthHandler_a5cd17eb68b8762da4d79b69998cfebdb}\label{classAuthHandler_a5cd17eb68b8762da4d79b69998cfebdb}} 
+\mbox{\hyperlink{classLogger}{Logger}} \& {\bfseries logger\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ссылка на объект логгера \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classAuthHandler_a05ea466619ea05e1fee9ca841975d7a0}\label{classAuthHandler_a05ea466619ea05e1fee9ca841975d7a0}} 
+\mbox{\hyperlink{classAuthDB}{Auth\+DB}} \& {\bfseries auth\+Db\+\_\+}
+\begin{DoxyCompactList}\small\item\em Ссылка на базу данных аутентификации \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для обработки аутентификации клиентов 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classAuthHandler_a89b386feb8ae65e229533d639c1bd9d7}\label{classAuthHandler_a89b386feb8ae65e229533d639c1bd9d7}} 
+\index{AuthHandler@{AuthHandler}!AuthHandler@{AuthHandler}}
+\index{AuthHandler@{AuthHandler}!AuthHandler@{AuthHandler}}
+\doxysubsubsection{\texorpdfstring{AuthHandler()}{AuthHandler()}}
+{\footnotesize\ttfamily Auth\+Handler\+::\+Auth\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} \&}]{logger,  }\item[{\mbox{\hyperlink{classAuthDB}{Auth\+DB}} \&}]{auth\+Db }\end{DoxyParamCaption})}
+
+
+
+Конструктор обработчика аутентификации 
+
+Создает обработчик аутентификации
+
+
+\begin{DoxyParams}{Аргументы}
+{\em logger} & Логгер для записи событий \\
+\hline
+{\em auth\+Db} & База данных аутентификации\\
+\hline
+{\em logger} & Ссылка на логгер для записи событий аутентификации \\
+\hline
+{\em auth\+Db} & Ссылка на базу данных аутентификации \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classAuthHandler_ae03e6c7f59e44a4b64f2605bcd64defe}\label{classAuthHandler_ae03e6c7f59e44a4b64f2605bcd64defe}} 
+\index{AuthHandler@{AuthHandler}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!AuthHandler@{AuthHandler}}
+\doxysubsubsection{\texorpdfstring{authenticate()}{authenticate()}}
+{\footnotesize\ttfamily bool Auth\+Handler\+::authenticate (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+fd,  }\item[{std\+::string \&}]{out\+\_\+login }\end{DoxyParamCaption})}
+
+
+
+Основной метод аутентификации 
+
+Выполняет процесс аутентификации клиента
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em out\+\_\+login} & Ссылка на строку для записи аутентифицированного логина \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если аутентификация успешна, false в противном случае
+\end{DoxyReturn}
+Процесс аутентификации состоит из следующих шагов\+:
+\begin{DoxyEnumerate}
+\item Чтение данных аутентификации из сокета (до 255 байт)
+\item Парсинг данных\+: извлечение логина, соли и хэша
+\item Поиск пароля в базе данных по логину
+\item Вычисление хэша на стороне сервера и сравнение с клиентским
+\item Отправка результата клиенту (\char`\"{}\+OK\char`\"{} или \char`\"{}\+ERR\char`\"{}) 
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em out\+\_\+login} & Ссылка на строку для записи аутентифицированного логина \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если аутентификация успешна, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Максимальный размер данных аутентификации\+: 255 байт 
+
+Формат данных\+: $<$логин$>$\texorpdfstring{$<$}{<}72 шестнадцатеричных символа\texorpdfstring{$>$}{>} где 72 символа = 16 символов соли + 56 символов хэша SHA224 
+\end{DoxyNote}
+\begin{DoxyPostcond}{Постусловие}
+Если аутентификация успешна, out\+\_\+login содержит логин клиента 
+\end{DoxyPostcond}
+
+\end{DoxyEnumerate}\mbox{\Hypertarget{classAuthHandler_acbe8a3020d96311be3c3a4e9101718b0}\label{classAuthHandler_acbe8a3020d96311be3c3a4e9101718b0}} 
+\index{AuthHandler@{AuthHandler}!computeSHA224@{computeSHA224}}
+\index{computeSHA224@{computeSHA224}!AuthHandler@{AuthHandler}}
+\doxysubsubsection{\texorpdfstring{computeSHA224()}{computeSHA224()}}
+{\footnotesize\ttfamily std\+::string Auth\+Handler\+::compute\+SHA224 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Вычисление SHA224 хэша 
+
+Вычисляет SHA224 хэш от переданных данных
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & Данные для хэширования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Хэш в виде hex строки
+\end{DoxyReturn}
+Использует библиотеку Crypto\+PP для вычисления хэша. Результат возвращается в виде шестнадцатеричной строки. 
+\begin{DoxyParams}{Аргументы}
+{\em data} & Строка данных для хэширования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Хэш SHA224 в виде hex строки (56 символов) 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Размер хэша SHA224\+: 28 байт (224 бита) = 56 hex символов 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{См. также}
+Crypto\+PP\+::\+SHA224 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classAuthHandler_a962c9d168c984f23d514d8b927e0bb56}\label{classAuthHandler_a962c9d168c984f23d514d8b927e0bb56}} 
+\index{AuthHandler@{AuthHandler}!parseAuthData@{parseAuthData}}
+\index{parseAuthData@{parseAuthData}!AuthHandler@{AuthHandler}}
+\doxysubsubsection{\texorpdfstring{parseAuthData()}{parseAuthData()}}
+{\footnotesize\ttfamily bool Auth\+Handler\+::parse\+Auth\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data,  }\item[{std\+::string \&}]{login,  }\item[{std\+::string \&}]{salt\+\_\+hex,  }\item[{std\+::string \&}]{hash\+\_\+hex }\end{DoxyParamCaption})}
+
+
+
+Парсинг данных аутентификации 
+
+Парсит данные аутентификации, полученные от клиента
+
+
+\begin{DoxyParams}{Аргументы}
+{\em data} & Сырые данные от клиента \\
+\hline
+{\em login} & Ссылка на строку для записи логина \\
+\hline
+{\em salt\+\_\+hex} & Ссылка на строку для записи соли в hex \\
+\hline
+{\em hash\+\_\+hex} & Ссылка на строку для записи хэша в hex \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если парсинг успешен, false в противном случае
+\end{DoxyReturn}
+Формат данных\+: все символы кроме последних 72 -\/ логин, последние 72 символа -\/ шестнадцатеричные данные (16 символов соли + 56 символов хэша) 
+\begin{DoxyParams}{Аргументы}
+{\em data} & Сырые данные от клиента (логин + hex) \\
+\hline
+{\em login} & Ссылка на строку для записи извлеченного логина \\
+\hline
+{\em salt\+\_\+hex} & Ссылка на строку для записи соли в hex (16 символов) \\
+\hline
+{\em hash\+\_\+hex} & Ссылка на строку для записи хэша в hex (56 символов) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если парсинг успешен, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyPrecond}{Предусловие}
+Длина data должна быть не менее 72 символов 
+
+Последние 72 символа должны быть корректной hex строкой 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Постусловие}
+Если возвращено true, параметры содержат извлеченные данные 
+\end{DoxyPostcond}
+\begin{DoxyNote}{Заметки}
+Логин может быть пустым, если data состоит ровно из 72 hex символов 
+\end{DoxyNote}
+\mbox{\Hypertarget{classAuthHandler_ad5c77c61fbc74effb7a5551eef772e6c}\label{classAuthHandler_ad5c77c61fbc74effb7a5551eef772e6c}} 
+\index{AuthHandler@{AuthHandler}!sendResponse@{sendResponse}}
+\index{sendResponse@{sendResponse}!AuthHandler@{AuthHandler}}
+\doxysubsubsection{\texorpdfstring{sendResponse()}{sendResponse()}}
+{\footnotesize\ttfamily bool Auth\+Handler\+::send\+Response (\begin{DoxyParamCaption}\item[{int}]{client\+\_\+fd,  }\item[{bool}]{success }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Отправка ответа клиенту 
+
+Отправляет клиенту результат аутентификации
+
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em success} & Результат аутентификации \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если отправка успешна, false в противном случае
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Аргументы}
+{\em client\+\_\+fd} & Файловый дескриптор клиентского сокета \\
+\hline
+{\em success} & Результат аутентификации \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если отправка успешна, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Формат ответа\+: \char`\"{}\+OK\char`\"{} при успехе, \char`\"{}\+ERR\char`\"{} при неудаче 
+
+Длина ответа\+: 2 байта для \char`\"{}\+OK\char`\"{}, 3 байта для \char`\"{}\+ERR\char`\"{} 
+\end{DoxyNote}
+\mbox{\Hypertarget{classAuthHandler_aa9439b20f77eceaa6e1c9dbf853ef359}\label{classAuthHandler_aa9439b20f77eceaa6e1c9dbf853ef359}} 
+\index{AuthHandler@{AuthHandler}!verifyHash@{verifyHash}}
+\index{verifyHash@{verifyHash}!AuthHandler@{AuthHandler}}
+\doxysubsubsection{\texorpdfstring{verifyHash()}{verifyHash()}}
+{\footnotesize\ttfamily bool Auth\+Handler\+::verify\+Hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login,  }\item[{const std\+::string \&}]{password,  }\item[{const std\+::string \&}]{salt\+\_\+hex,  }\item[{const std\+::string \&}]{client\+\_\+hash\+\_\+hex }\end{DoxyParamCaption})}
+
+
+
+Проверка хэша пароля 
+
+Проверяет корректность хэша пароля
+
+
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя \\
+\hline
+{\em password} & Пароль из базы данных \\
+\hline
+{\em salt\+\_\+hex} & Соль в hex формате \\
+\hline
+{\em client\+\_\+hash\+\_\+hex} & Хэш от клиента в hex формате \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если хэши совпадают, false в противном случае
+\end{DoxyReturn}
+Процесс проверки\+:
+\begin{DoxyEnumerate}
+\item Конкатенирует соль (hex) и пароль (plaintext)
+\item Вычисляет SHA224 от результата конкатенации
+\item Сравнивает полученный хэш с хэшем от клиента 
+\begin{DoxyParams}{Аргументы}
+{\em login} & Логин пользователя (для логирования) \\
+\hline
+{\em password} & Пароль из базы данных в plaintext \\
+\hline
+{\em salt\+\_\+hex} & Соль в hex формате (16 символов, 8 байт) \\
+\hline
+{\em client\+\_\+hash\+\_\+hex} & Хэш от клиента в hex формате (56 символов) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true если хэши совпадают, false в противном случае 
+\end{DoxyReturn}
+\begin{DoxyNote}{Заметки}
+Используется схема\+: hash = SHA224(salt $\vert$$\vert$ password) 
+
+Сравнение выполняется с защитой от timing-\/атак через Verify\+Bufs\+Equal 
+\end{DoxyNote}
+
+\end{DoxyEnumerate}
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+auth\+\_\+handler.\+h\item 
+auth\+\_\+handler.\+cpp\end{DoxyCompactItemize}

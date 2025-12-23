@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server: Документация сервера обработки векторов</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Документация сервера обработки векторов </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Оглавление</h3>
+<ul><li class="level1"><a href="#intro">Введение</a></li>
+<li class="level1"><a href="#features">Основные возможности</a></li>
+<li class="level1"><a href="#architecture">Архитектура системы</a><ul><li class="level2"><a href="#components">Основные компоненты</a><ul><li class="level3"><a href="#server">NetworkServer</a></li>
+<li class="level3"><a href="#auth">AuthHandler</a></li>
+<li class="level3"><a href="#vector">VectorHandler</a></li>
+<li class="level3"><a href="#utils">NetworkUtils</a></li>
+<li class="level3"><a href="#logging">Logger</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="level1"><a href="#protocol">Протокол взаимодействия</a><ul><li class="level2"><a href="#auth_protocol">Протокол аутентификации</a></li>
+<li class="level2"><a href="#vector_protocol">Протокол обработки векторов</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#limitations">Ограничения</a></li>
+<li class="level1"><a href="#dependencies">Зависимости</a></li>
+<li class="level1"><a href="#links">Ссылки и дополнительная информация</a></li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="intro"></a>
+Введение</h1>
+<p >Сервер обработки векторов — это многокомпонентное приложение для аутентификации клиентов и обработки числовых векторных данных. Сервер поддерживает протокол аутентификации на основе SHA224 и предоставляет функционал для суммирования векторов с контролем переполнения.</p>
+<h1><a class="anchor" id="features"></a>
+Основные возможности</h1>
+<ul>
+<li>Аутентификация клиентов с использованием хэширования SHA224 с солью</li>
+<li>Обработка векторных данных с контролем переполнения</li>
+<li>Многопоточное логирование в файл</li>
+<li>Конфигурация через командную строку</li>
+<li>Загрузка базы данных клиентов из файла</li>
+</ul>
+<h1><a class="anchor" id="architecture"></a>
+Архитектура системы</h1>
+<div class="dotgraph">
+<img src="dot_inline_dotgraph_1.png" alt="dot_inline_dotgraph_1.png" border="0" usemap="#dot_inline_dotgraph_1.map"/>
+</div>
+<h2><a class="anchor" id="components"></a>
+Основные компоненты</h2>
+<h3><a class="anchor" id="server"></a>
+NetworkServer</h3>
+<p >Основной класс сервера, управляющий сетевыми соединениями и координирующий работу других компонентов.</p>
+<h3><a class="anchor" id="auth"></a>
+AuthHandler</h3>
+<p >Обработчик аутентификации, реализующий проверку учетных данных клиентов с использованием SHA224.</p>
+<h3><a class="anchor" id="vector"></a>
+VectorHandler</h3>
+<p >Обработчик векторных данных, читающий векторы из сети и вычисляющий их суммы с контролем переполнения.</p>
+<h3><a class="anchor" id="utils"></a>
+NetworkUtils</h3>
+<p >Набор утилит для работы с сетью, преобразования данных и работы с сетевым порядком байт.</p>
+<h3><a class="anchor" id="logging"></a>
+Logger</h3>
+<p >Потокобезопасная система логирования с записью в файл.</p>
+<h1><a class="anchor" id="protocol"></a>
+Протокол взаимодействия</h1>
+<h2><a class="anchor" id="auth_protocol"></a>
+Протокол аутентификации</h2>
+<ol type="1">
+<li>Клиент отправляет данные в формате: <code>&lt;логин&gt;&lt;72_hex_символа&gt;</code><ul>
+<li>72 шестнадцатеричных символа = 16 символов соли + 56 символов хэша SHA224</li>
+<li>Хэш вычисляется как: <code>SHA224(salt_hex + password)</code></li>
+</ul>
+</li>
+<li>Сервер проверяет логин и пароль в базе данных</li>
+<li>Сервер вычисляет хэш и сравнивает с клиентским</li>
+<li>Сервер отправляет ответ: "OK" (успех) или "ERR" (ошибка)</li>
+</ol>
+<h2><a class="anchor" id="vector_protocol"></a>
+Протокол обработки векторов</h2>
+<ol type="1">
+<li>Клиент отправляет количество векторов (uint32_t, сетевой порядок байт)</li>
+<li>Для каждого вектора:<ul>
+<li>Размер вектора (uint32_t, сетевой порядок байт)</li>
+<li>Данные вектора (размер × uint32_t, сетевой порядок байт)</li>
+</ul>
+</li>
+<li>Сервер для каждого вектора:<ul>
+<li>Вычисляет сумму с ограничением (см. <a class="el" href="classVectorProcessor.html#acd1afc48ea00177af36466af2e981bf2" title="Суммирует элементы вектора с контролем переполнения">VectorProcessor::sumClamp</a>)</li>
+<li>Отправляет результат (int32_t, сетевой порядок байт)</li>
+</ul>
+</li>
+</ol>
+<h1><a class="anchor" id="limitations"></a>
+Ограничения</h1>
+<ul>
+<li>Максимальное количество векторов на сессию: 100,000</li>
+<li>Максимальный размер одного вектора: 10,000,000 элементов</li>
+<li>Размер данных аутентификации: до 255 байт</li>
+<li>Сервер работает в однопоточном режиме</li>
+</ul>
+<h1><a class="anchor" id="dependencies"></a>
+Зависимости</h1>
+<p >Boost.Program_options - для обработки командной строки</p>
+<p >Crypto++ - для вычисления SHA224 хэшей</p>
+<p >Стандартная библиотека C++17 - для базового функционала</p>
+<h1><a class="anchor" id="links"></a>
+Ссылки и дополнительная информация</h1>
+<p ><a class="el" href="classNetworkServer.html">NetworkServer</a> - Основной класс сервера</p>
+<p ><a class="el" href="classAuthHandler.html">AuthHandler</a> - Обработчик аутентификации</p>
+<p ><a class="el" href="classVectorHandler.html">VectorHandler</a> - Обработчик векторов</p>
+<p ><a class="el" href="classLogger.html">Logger</a> - Система логирования</p>
+<p >NetworkUtils - Сетевые утилиты</p>
+<dl class="section note"><dt>Заметки</dt><dd>Для работы сервера требуется файл базы данных клиентов в формате "логин:пароль" </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Сервер не предназначен для обработки крайне больших векторов (&gt;10^7 элементов) </dd></dl>
+<dl class="section see"><dt>См. также</dt><dd><a class="el" href="classVectorProcessor.html#acd1afc48ea00177af36466af2e981bf2" title="Суммирует элементы вектора с контролем переполнения">VectorProcessor::sumClamp()</a> для подробностей об алгоритме суммирования </dd></dl>
+</div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

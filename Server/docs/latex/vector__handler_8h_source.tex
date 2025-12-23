@@ -1,0 +1,36 @@
+\hypertarget{vector__handler_8h_source}{}\doxysection{vector\+\_\+handler.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef VECTOR\_HANDLER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define VECTOR\_HANDLER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}logger.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}vector\_processor.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{classVectorHandler}{VectorHandler}} \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keyword}{explicit} \mbox{\hyperlink{classVectorHandler_a1feb6e3585f2fd90f0c45153da70eb96}{VectorHandler}}(\mbox{\hyperlink{classLogger}{Logger}}\& logger);}
+\DoxyCodeLine{20     }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{classVectorHandler_a8b2362b4b29cbcac0b56b1631e633a83}{process}}(\textcolor{keywordtype}{int} client\_fd, \textcolor{keyword}{const} std::string\& login);}
+\DoxyCodeLine{28     }
+\DoxyCodeLine{35     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVectorHandler_ad4c7cc69ec66d2b88dba7da3023ebdac}{readVector}}(\textcolor{keywordtype}{int} client\_fd, std::vector<uint32\_t>\& vector);}
+\DoxyCodeLine{36     }
+\DoxyCodeLine{42     int32\_t \mbox{\hyperlink{classVectorHandler_ac89d8c81df4ce33e2c508438bb0fae12}{processVector}}(\textcolor{keyword}{const} std::vector<uint32\_t>\& vector);}
+\DoxyCodeLine{43     }
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVectorHandler_a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5}{sendResult}}(\textcolor{keywordtype}{int} client\_fd, int32\_t result);}
+\DoxyCodeLine{51     }
+\DoxyCodeLine{52 \textcolor{keyword}{private}:}
+\DoxyCodeLine{53     \mbox{\hyperlink{classLogger}{Logger}}\& \mbox{\hyperlink{classVectorHandler_a2d503a514a96c8c29ff012cec881df0b}{logger\_}}; }
+\DoxyCodeLine{54     }
+\DoxyCodeLine{61     uint32\_t \mbox{\hyperlink{classVectorHandler_ad12df915d098eb6178ef5af85b683be6}{readVectorCount}}(\textcolor{keywordtype}{int} client\_fd);}
+\DoxyCodeLine{62     }
+\DoxyCodeLine{68     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVectorHandler_a4331b2232b66af1900b95ac1dc8b6992}{validateVectorCount}}(uint32\_t count);}
+\DoxyCodeLine{69     }
+\DoxyCodeLine{75     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classVectorHandler_a6678666050251b9331ced74544126737}{validateVectorSize}}(uint32\_t size);}
+\DoxyCodeLine{76 \};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

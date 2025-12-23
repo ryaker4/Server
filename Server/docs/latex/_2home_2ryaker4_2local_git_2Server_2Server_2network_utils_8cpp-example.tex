@@ -1,0 +1,107 @@
+\hypertarget{_2home_2ryaker4_2local_git_2Server_2Server_2network_utils_8cpp-example}{}\doxysection{/home/ryaker4/local\+\_\+git/\+Server/\+Server/network\+\_\+utils.\+cpp}
+Преобразует массив байт в шестнадцатеричную строку в верхнем регистре
+
+Преобразует массив байт в шестнадцатеричную строку в верхнем регистре Каждый байт преобразуется в два шестнадцатеричных символа. Используется для удобного отображения бинарных данных в логах и для передачи хэшей в текстовом формате. 
+\begin{DoxyParams}{Аргументы}
+{\em data} & Указатель на массив байт \\
+\hline
+{\em length} & Количество байт для преобразования \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Строка, содержащая шестнадцатеричное представление данных
+\end{DoxyReturn}
+bytes\+To\+Hex(\{0x\+DE, 0x\+AD, 0x\+BE, 0x\+EF\}, 4) -\/\texorpdfstring{$>$}{>} \char`\"{}\+DEADBEEF\char`\"{}
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}network\_utils.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <arpa/inet.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace }NetworkUtils \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{ssize\_t recvAll(\textcolor{keywordtype}{int} fd, \textcolor{keywordtype}{void}* buf, \textcolor{keywordtype}{size\_t} len) \{}
+\DoxyCodeLine{    \textcolor{keywordtype}{char}* p = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(buf);}
+\DoxyCodeLine{    \textcolor{keywordtype}{size\_t} rem = len;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    \textcolor{keywordflow}{while}(rem > 0) \{}
+\DoxyCodeLine{        ssize\_t r = recv(fd, p, rem, 0);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(r <= 0)}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} r;}
+\DoxyCodeLine{        p += r;}
+\DoxyCodeLine{        rem -\/= r;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}ssize\_t\textcolor{keyword}{>}(len);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::string bytesToHex(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* data, \textcolor{keywordtype}{size\_t} length) \{}
+\DoxyCodeLine{    std::stringstream ss;}
+\DoxyCodeLine{    ss << std::hex << std::setfill(\textcolor{charliteral}{'0'}) << std::uppercase;}
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < length; ++i) \{}
+\DoxyCodeLine{        ss << std::setw(2) << static\_cast<int>(data[i]);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} hexToBytes(\textcolor{keyword}{const} std::string\& hex, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* output, \textcolor{keywordtype}{size\_t} output\_len) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(hex.length() != output\_len * 2) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keyword}{auto} hexCharToByte = [](\textcolor{keywordtype}{char} c) -\/> \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(c >= \textcolor{charliteral}{'0'} \&\& c <= \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} c -\/ \textcolor{charliteral}{'0'};}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(c >= \textcolor{charliteral}{'a'} \&\& c <= \textcolor{charliteral}{'f'})}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} 10 + (c -\/ \textcolor{charliteral}{'a'});}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(c >= \textcolor{charliteral}{'A'} \&\& c <= \textcolor{charliteral}{'F'})}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} 10 + (c -\/ \textcolor{charliteral}{'A'});}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} 0xFF;}
+\DoxyCodeLine{    \};}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t} i = 0; i < output\_len; i++) \{}
+\DoxyCodeLine{        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} high = hexCharToByte(hex[i * 2]);}
+\DoxyCodeLine{        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} low = hexCharToByte(hex[i * 2 + 1]);}
+\DoxyCodeLine{        \textcolor{keywordflow}{if}(high == 0xFF || low == 0xFF) \{}
+\DoxyCodeLine{            \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        output[i] = (high << 4) | low;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::string sockaddrToString(\textcolor{keyword}{const} sockaddr\_in\& addr) \{}
+\DoxyCodeLine{    \textcolor{keywordtype}{char} ipbuf[INET\_ADDRSTRLEN];}
+\DoxyCodeLine{    inet\_ntop(AF\_INET, \&addr.sin\_addr, ipbuf, \textcolor{keyword}{sizeof}(ipbuf));}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} std::string(ipbuf) + \textcolor{stringliteral}{"{}:"{}} + std::to\_string(ntohs(addr.sin\_port));}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} isValidHex(\textcolor{keyword}{const} std::string\& str) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} std::all\_of(str.begin(), str.end(), [](\textcolor{keywordtype}{char} c) \{}
+\DoxyCodeLine{        return (c >= \textcolor{stringliteral}{'0'} \&\& c <= \textcolor{stringliteral}{'9'}) || }
+\DoxyCodeLine{               (c >= \textcolor{stringliteral}{'a'} \&\& c <= \textcolor{stringliteral}{'f'}) || }
+\DoxyCodeLine{               (c >= \textcolor{stringliteral}{'A'} \&\& c <= \textcolor{stringliteral}{'F'});}
+\DoxyCodeLine{    \});}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{uint32\_t readNetworkUint32(\textcolor{keywordtype}{int} fd) \{}
+\DoxyCodeLine{    uint32\_t value;}
+\DoxyCodeLine{    \textcolor{keywordflow}{if}(recvAll(fd, \&value, 4) != 4) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Failed to read uint32"{}});}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} value;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{bool} sendNetworkUint32(\textcolor{keywordtype}{int} fd, uint32\_t value) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} send(fd, \&value, 4, 0) == 4;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\} }
+
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,23 @@
+\hypertarget{serverInterface_8h_source}{}\doxysection{server\+Interface.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}server\_params.h"{}}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{classServerInterface}{ServerInterface}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15     \mbox{\hyperlink{classServerInterface_af57df880036851e66ac80226be0f9305}{ServerInterface}}();}
+\DoxyCodeLine{16     }
+\DoxyCodeLine{23     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classServerInterface_afae361889ced473bb92cac10fed92498}{parse}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}** argv);}
+\DoxyCodeLine{24     }
+\DoxyCodeLine{29     \mbox{\hyperlink{structServerParams}{ServerParams}} \mbox{\hyperlink{classServerInterface_ae3c471be78fd1eb1c47b25c5d0779066}{getParams}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{30     }
+\DoxyCodeLine{35     std::string \mbox{\hyperlink{classServerInterface_af18af314bd6c16815aff1a2bd947b22f}{getDescription}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{36     }
+\DoxyCodeLine{37 \textcolor{keyword}{private}:}
+\DoxyCodeLine{38     \textcolor{keyword}{struct }\mbox{\hyperlink{structServerInterface_1_1Impl}{Impl}};}
+\DoxyCodeLine{39     \mbox{\hyperlink{structServerInterface_1_1Impl}{Impl}}* \mbox{\hyperlink{classServerInterface_a5a5bee60a1ce898f7551dcb240d17716}{pimpl}}; }
+\DoxyCodeLine{40 \};}
+
+\end{DoxyCode}

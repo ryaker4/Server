@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Server: Исходный файл vector_handler.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">vector_handler.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef VECTOR_HANDLER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define VECTOR_HANDLER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;logger.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;vector_processor.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classVectorHandler.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classVectorHandler.html">VectorHandler</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classVectorHandler.html#a1feb6e3585f2fd90f0c45153da70eb96">VectorHandler</a>(<a class="code hl_class" href="classLogger.html">Logger</a>&amp; logger);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classVectorHandler.html#a8b2362b4b29cbcac0b56b1631e633a83">process</a>(<span class="keywordtype">int</span> client_fd, <span class="keyword">const</span> std::string&amp; login);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classVectorHandler.html#ad4c7cc69ec66d2b88dba7da3023ebdac">readVector</a>(<span class="keywordtype">int</span> client_fd, std::vector&lt;uint32_t&gt;&amp; vector);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    int32_t <a class="code hl_function" href="classVectorHandler.html#ac89d8c81df4ce33e2c508438bb0fae12">processVector</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; vector);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classVectorHandler.html#a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5">sendResult</a>(<span class="keywordtype">int</span> client_fd, int32_t result);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classVectorHandler.html#a2d503a514a96c8c29ff012cec881df0b">   53</a></span>    <a class="code hl_class" href="classLogger.html">Logger</a>&amp; <a class="code hl_variable" href="classVectorHandler.html#a2d503a514a96c8c29ff012cec881df0b">logger_</a>; </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    uint32_t <a class="code hl_function" href="classVectorHandler.html#ad12df915d098eb6178ef5af85b683be6">readVectorCount</a>(<span class="keywordtype">int</span> client_fd);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classVectorHandler.html#a4331b2232b66af1900b95ac1dc8b6992">validateVectorCount</a>(uint32_t count);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classVectorHandler.html#a6678666050251b9331ced74544126737">validateVectorSize</a>(uint32_t size);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Класс для потокобезопасного логирования в файл</div><div class="ttdef"><b>Definition:</b> logger.h:10</div></div>
+<div class="ttc" id="aclassVectorHandler_html"><div class="ttname"><a href="classVectorHandler.html">VectorHandler</a></div><div class="ttdoc">Класс для обработки векторных запросов от клиентов</div><div class="ttdef"><b>Definition:</b> vector_handler.h:13</div></div>
+<div class="ttc" id="aclassVectorHandler_html_a1feb6e3585f2fd90f0c45153da70eb96"><div class="ttname"><a href="classVectorHandler.html#a1feb6e3585f2fd90f0c45153da70eb96">VectorHandler::VectorHandler</a></div><div class="ttdeci">VectorHandler(Logger &amp;logger)</div><div class="ttdoc">Конструктор обработчика векторов</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:10</div></div>
+<div class="ttc" id="aclassVectorHandler_html_a2d503a514a96c8c29ff012cec881df0b"><div class="ttname"><a href="classVectorHandler.html#a2d503a514a96c8c29ff012cec881df0b">VectorHandler::logger_</a></div><div class="ttdeci">Logger &amp; logger_</div><div class="ttdoc">Ссылка на объект логгера</div><div class="ttdef"><b>Definition:</b> vector_handler.h:53</div></div>
+<div class="ttc" id="aclassVectorHandler_html_a4331b2232b66af1900b95ac1dc8b6992"><div class="ttname"><a href="classVectorHandler.html#a4331b2232b66af1900b95ac1dc8b6992">VectorHandler::validateVectorCount</a></div><div class="ttdeci">bool validateVectorCount(uint32_t count)</div><div class="ttdoc">Валидация количества векторов</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:88</div></div>
+<div class="ttc" id="aclassVectorHandler_html_a6678666050251b9331ced74544126737"><div class="ttname"><a href="classVectorHandler.html#a6678666050251b9331ced74544126737">VectorHandler::validateVectorSize</a></div><div class="ttdeci">bool validateVectorSize(uint32_t size)</div><div class="ttdoc">Валидация размера вектора</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:98</div></div>
+<div class="ttc" id="aclassVectorHandler_html_a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5"><div class="ttname"><a href="classVectorHandler.html#a7b9b4aff3aa65a1ba2ca0db2bd4cc0a5">VectorHandler::sendResult</a></div><div class="ttdeci">bool sendResult(int client_fd, int32_t result)</div><div class="ttdoc">Отправка результата клиенту</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:149</div></div>
+<div class="ttc" id="aclassVectorHandler_html_a8b2362b4b29cbcac0b56b1631e633a83"><div class="ttname"><a href="classVectorHandler.html#a8b2362b4b29cbcac0b56b1631e633a83">VectorHandler::process</a></div><div class="ttdeci">void process(int client_fd, const std::string &amp;login)</div><div class="ttdoc">Основной метод обработки векторов</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:29</div></div>
+<div class="ttc" id="aclassVectorHandler_html_ac89d8c81df4ce33e2c508438bb0fae12"><div class="ttname"><a href="classVectorHandler.html#ac89d8c81df4ce33e2c508438bb0fae12">VectorHandler::processVector</a></div><div class="ttdeci">int32_t processVector(const std::vector&lt; uint32_t &gt; &amp;vector)</div><div class="ttdoc">Обработка одного вектора</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:138</div></div>
+<div class="ttc" id="aclassVectorHandler_html_ad12df915d098eb6178ef5af85b683be6"><div class="ttname"><a href="classVectorHandler.html#ad12df915d098eb6178ef5af85b683be6">VectorHandler::readVectorCount</a></div><div class="ttdeci">uint32_t readVectorCount(int client_fd)</div><div class="ttdoc">Чтение количества векторов</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:74</div></div>
+<div class="ttc" id="aclassVectorHandler_html_ad4c7cc69ec66d2b88dba7da3023ebdac"><div class="ttname"><a href="classVectorHandler.html#ad4c7cc69ec66d2b88dba7da3023ebdac">VectorHandler::readVector</a></div><div class="ttdeci">bool readVector(int client_fd, std::vector&lt; uint32_t &gt; &amp;vector)</div><div class="ttdoc">Чтение вектора из сокета</div><div class="ttdef"><b>Definition:</b> vector_handler.cpp:112</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+</small></address>
+</body>
+</html>

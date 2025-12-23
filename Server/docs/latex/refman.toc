@@ -1,0 +1,97 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\babel@toc {russian}{}\relax 
+\contentsline {chapter}{\numberline {1}Документация сервера обработки векторов}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Введение}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Основные возможности}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Архитектура системы}{1}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Основные компоненты}{1}{subsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.1}Network\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server}{1}{subsubsection.1.3.1.1}%
+\contentsline {subsubsection}{\numberline {1.3.1.2}Auth\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler}{2}{subsubsection.1.3.1.2}%
+\contentsline {subsubsection}{\numberline {1.3.1.3}Vector\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler}{2}{subsubsection.1.3.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1.4}Network\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utils}{2}{subsubsection.1.3.1.4}%
+\contentsline {subsubsection}{\numberline {1.3.1.5}Logger}{2}{subsubsection.1.3.1.5}%
+\contentsline {section}{\numberline {1.4}Протокол взаимодействия}{2}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Протокол аутентификации}{2}{subsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.4.2}Протокол обработки векторов}{2}{subsection.1.4.2}%
+\contentsline {section}{\numberline {1.5}Ограничения}{3}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Зависимости}{3}{section.1.6}%
+\contentsline {section}{\numberline {1.7}Ссылки и дополнительная информация}{3}{section.1.7}%
+\contentsline {chapter}{\numberline {2}Алфавитный указатель классов}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Классы}{5}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Список файлов}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Файлы}{7}{section.3.1}%
+\contentsline {chapter}{\numberline {4}Классы}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Класс Auth\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}DB}{9}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Подробное описание}{9}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Методы}{9}{subsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.2.1}findPassword()}{9}{subsubsection.4.1.2.1}%
+\contentsline {subsubsection}{\numberline {4.1.2.2}loadFromFile()}{10}{subsubsection.4.1.2.2}%
+\contentsline {section}{\numberline {4.2}Класс Auth\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler}{11}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Подробное описание}{12}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Конструктор(ы)}{12}{subsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.2.1}AuthHandler()}{12}{subsubsection.4.2.2.1}%
+\contentsline {subsection}{\numberline {4.2.3}Методы}{13}{subsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.1}authenticate()}{13}{subsubsection.4.2.3.1}%
+\contentsline {subsubsection}{\numberline {4.2.3.2}computeSHA224()}{14}{subsubsection.4.2.3.2}%
+\contentsline {subsubsection}{\numberline {4.2.3.3}parseAuthData()}{14}{subsubsection.4.2.3.3}%
+\contentsline {subsubsection}{\numberline {4.2.3.4}sendResponse()}{15}{subsubsection.4.2.3.4}%
+\contentsline {subsubsection}{\numberline {4.2.3.5}verifyHash()}{16}{subsubsection.4.2.3.5}%
+\contentsline {section}{\numberline {4.3}Структура Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interface\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Impl}{17}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Класс Logger}{18}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Подробное описание}{18}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Конструктор(ы)}{18}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}Logger()}{18}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}$\sim $Logger()}{19}{subsubsection.4.4.2.2}%
+\contentsline {subsection}{\numberline {4.4.3}Методы}{19}{subsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.1}error()}{19}{subsubsection.4.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.4.3.2}info()}{20}{subsubsection.4.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.4.3.3}warning()}{20}{subsubsection.4.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.4.3.4}write()}{21}{subsubsection.4.4.3.4}%
+\contentsline {section}{\numberline {4.5}Класс Network\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server}{21}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Подробное описание}{23}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Конструктор(ы)}{23}{subsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.2.1}NetworkServer()}{23}{subsubsection.4.5.2.1}%
+\contentsline {subsubsection}{\numberline {4.5.2.2}$\sim $NetworkServer()}{23}{subsubsection.4.5.2.2}%
+\contentsline {subsection}{\numberline {4.5.3}Методы}{23}{subsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.1}createSocket()}{24}{subsubsection.4.5.3.1}%
+\contentsline {subsubsection}{\numberline {4.5.3.2}isRunning()}{24}{subsubsection.4.5.3.2}%
+\contentsline {subsubsection}{\numberline {4.5.3.3}requestStop()}{25}{subsubsection.4.5.3.3}%
+\contentsline {subsubsection}{\numberline {4.5.3.4}run()}{25}{subsubsection.4.5.3.4}%
+\contentsline {subsubsection}{\numberline {4.5.3.5}serveClient()}{25}{subsubsection.4.5.3.5}%
+\contentsline {section}{\numberline {4.6}Класс Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interface}{26}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Подробное описание}{27}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Методы}{28}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}getDescription()}{28}{subsubsection.4.6.2.1}%
+\contentsline {subsubsection}{\numberline {4.6.2.2}getParams()}{28}{subsubsection.4.6.2.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.3}parse()}{28}{subsubsection.4.6.2.3}%
+\contentsline {section}{\numberline {4.7}Структура Server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Params}{29}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Подробное описание}{29}{subsection.4.7.1}%
+\contentsline {section}{\numberline {4.8}Класс Vector\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Handler}{29}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Подробное описание}{30}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Конструктор(ы)}{30}{subsection.4.8.2}%
+\contentsline {subsubsection}{\numberline {4.8.2.1}VectorHandler()}{30}{subsubsection.4.8.2.1}%
+\contentsline {subsection}{\numberline {4.8.3}Методы}{31}{subsection.4.8.3}%
+\contentsline {subsubsection}{\numberline {4.8.3.1}process()}{31}{subsubsection.4.8.3.1}%
+\contentsline {subsubsection}{\numberline {4.8.3.2}processVector()}{32}{subsubsection.4.8.3.2}%
+\contentsline {subsubsection}{\numberline {4.8.3.3}readVector()}{32}{subsubsection.4.8.3.3}%
+\contentsline {subsubsection}{\numberline {4.8.3.4}readVectorCount()}{33}{subsubsection.4.8.3.4}%
+\contentsline {subsubsection}{\numberline {4.8.3.5}sendResult()}{34}{subsubsection.4.8.3.5}%
+\contentsline {subsubsection}{\numberline {4.8.3.6}validateVectorCount()}{35}{subsubsection.4.8.3.6}%
+\contentsline {subsubsection}{\numberline {4.8.3.7}validateVectorSize()}{35}{subsubsection.4.8.3.7}%
+\contentsline {section}{\numberline {4.9}Класс Vector\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Processor}{36}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Подробное описание}{36}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Методы}{36}{subsection.4.9.2}%
+\contentsline {subsubsection}{\numberline {4.9.2.1}sumClamp()}{36}{subsubsection.4.9.2.1}%
+\contentsline {chapter}{\numberline {5}Файлы}{39}{chapter.5}%
+\contentsline {section}{\numberline {5.1}auth\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}handler.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{39}{section.5.1}%
+\contentsline {section}{\numberline {5.2}authdb.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{39}{section.5.2}%
+\contentsline {section}{\numberline {5.3}logger.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{40}{section.5.3}%
+\contentsline {section}{\numberline {5.4}network\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}server.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{40}{section.5.4}%
+\contentsline {section}{\numberline {5.5}network\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{40}{section.5.5}%
+\contentsline {section}{\numberline {5.6}server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}params.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.5.6}%
+\contentsline {section}{\numberline {5.7}server\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interface.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.5.7}%
+\contentsline {section}{\numberline {5.8}vector\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}handler.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.5.8}%
+\contentsline {section}{\numberline {5.9}vector\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}processor.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{42}{section.5.9}%
+\contentsline {chapter}{\numberline {6}Примеры}{43}{chapter.6}%
+\contentsline {section}{\numberline {6.1}/home/ryaker4/local\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}git/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Server/network\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}utils.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp}{43}{section.6.1}%
+\contentsline {chapter}{{\cyrillictext \CYRP \cyrr \cyre \cyrd \cyrm \cyre \cyrt \cyrn \cyrery \cyrishrt \ \cyru \cyrk \cyra \cyrz \cyra \cyrt \cyre \cyrl \cyrsftsn }}{45}{section*.26}%

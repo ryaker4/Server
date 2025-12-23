@@ -1,0 +1,30 @@
+\hypertarget{network__utils_8h_source}{}\doxysection{network\+\_\+utils.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef NETWORK\_UTILS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define NETWORK\_UTILS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <netinet/in.h>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }NetworkUtils \{}
+\DoxyCodeLine{17     ssize\_t recvAll(\textcolor{keywordtype}{int} fd, \textcolor{keywordtype}{void}* buf, \textcolor{keywordtype}{size\_t} len);}
+\DoxyCodeLine{18     }
+\DoxyCodeLine{25     std::string bytesToHex(\textcolor{keyword}{const} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* data, \textcolor{keywordtype}{size\_t} length);}
+\DoxyCodeLine{26     }
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} hexToBytes(\textcolor{keyword}{const} std::string\& hex, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}* output, \textcolor{keywordtype}{size\_t} output\_len);}
+\DoxyCodeLine{35     }
+\DoxyCodeLine{41     std::string sockaddrToString(\textcolor{keyword}{const} sockaddr\_in\& addr);}
+\DoxyCodeLine{42     }
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool} isValidHex(\textcolor{keyword}{const} std::string\& str);}
+\DoxyCodeLine{49     }
+\DoxyCodeLine{56     uint32\_t readNetworkUint32(\textcolor{keywordtype}{int} fd);}
+\DoxyCodeLine{57     }
+\DoxyCodeLine{64     \textcolor{keywordtype}{bool} sendNetworkUint32(\textcolor{keywordtype}{int} fd, uint32\_t value);}
+\DoxyCodeLine{65 \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

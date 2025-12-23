@@ -1,0 +1,20 @@
+\hypertarget{authdb_8h_source}{}\doxysection{authdb.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classAuthDB}{AuthDB}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{classAuthDB_ac5959489691973607af807c4f11a8e6a}{AuthDB}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{15     }
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} \mbox{\hyperlink{classAuthDB_aee9e0ed263a18fd42c55660df28a5f6e}{loadFromFile}}(\textcolor{keyword}{const} std::string\& filename);}
+\DoxyCodeLine{22     }
+\DoxyCodeLine{29     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classAuthDB_a730f5d64538e1c5e4b787bbd7bd1dce3}{findPassword}}(\textcolor{keyword}{const} std::string\& login, std::string\& outPassword) \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{private}:}
+\DoxyCodeLine{32     std::unordered\_map<std::string,std::string> \mbox{\hyperlink{classAuthDB_ac3dceca3eb00a099dcbf50ba37724a3b}{db}}; }
+\DoxyCodeLine{33 \};}
+
+\end{DoxyCode}

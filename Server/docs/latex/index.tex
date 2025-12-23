@@ -1,0 +1,78 @@
+\hypertarget{index_intro}{}\doxysection{Введение}\label{index_intro}
+Сервер обработки векторов — это многокомпонентное приложение для аутентификации клиентов и обработки числовых векторных данных. Сервер поддерживает протокол аутентификации на основе SHA224 и предоставляет функционал для суммирования векторов с контролем переполнения.\hypertarget{index_features}{}\doxysection{Основные возможности}\label{index_features}
+
+\begin{DoxyItemize}
+\item Аутентификация клиентов с использованием хэширования SHA224 с солью
+\item Обработка векторных данных с контролем переполнения
+\item Многопоточное логирование в файл
+\item Конфигурация через командную строку
+\item Загрузка базы данных клиентов из файла
+\end{DoxyItemize}\hypertarget{index_architecture}{}\doxysection{Архитектура системы}\label{index_architecture}
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
+\end{DoxyImageNoCaption}
+\hypertarget{index_components}{}\doxysubsection{Основные компоненты}\label{index_components}
+\hypertarget{index_server}{}\doxysubsubsection{Network\+Server}\label{index_server}
+Основной класс сервера, управляющий сетевыми соединениями и координирующий работу других компонентов.\hypertarget{index_auth}{}\doxysubsubsection{Auth\+Handler}\label{index_auth}
+Обработчик аутентификации, реализующий проверку учетных данных клиентов с использованием SHA224.\hypertarget{index_vector}{}\doxysubsubsection{Vector\+Handler}\label{index_vector}
+Обработчик векторных данных, читающий векторы из сети и вычисляющий их суммы с контролем переполнения.\hypertarget{index_utils}{}\doxysubsubsection{Network\+Utils}\label{index_utils}
+Набор утилит для работы с сетью, преобразования данных и работы с сетевым порядком байт.\hypertarget{index_logging}{}\doxysubsubsection{Logger}\label{index_logging}
+Потокобезопасная система логирования с записью в файл.\hypertarget{index_protocol}{}\doxysection{Протокол взаимодействия}\label{index_protocol}
+\hypertarget{index_auth_protocol}{}\doxysubsection{Протокол аутентификации}\label{index_auth_protocol}
+
+\begin{DoxyEnumerate}
+\item Клиент отправляет данные в формате\+: {\ttfamily \texorpdfstring{$<$}{<}логин\texorpdfstring{$>$}{>}\texorpdfstring{$<$}{<}72\+\_\+hex\+\_\+символа\texorpdfstring{$>$}{>}}
+\begin{DoxyItemize}
+\item 72 шестнадцатеричных символа = 16 символов соли + 56 символов хэша SHA224
+\item Хэш вычисляется как\+: {\ttfamily SHA224(salt\+\_\+hex + password)}
+\end{DoxyItemize}
+\item Сервер проверяет логин и пароль в базе данных
+\item Сервер вычисляет хэш и сравнивает с клиентским
+\item Сервер отправляет ответ\+: \char`\"{}\+OK\char`\"{} (успех) или \char`\"{}\+ERR\char`\"{} (ошибка)
+\end{DoxyEnumerate}\hypertarget{index_vector_protocol}{}\doxysubsection{Протокол обработки векторов}\label{index_vector_protocol}
+
+\begin{DoxyEnumerate}
+\item Клиент отправляет количество векторов (uint32\+\_\+t, сетевой порядок байт)
+\item Для каждого вектора\+:
+\begin{DoxyItemize}
+\item Размер вектора (uint32\+\_\+t, сетевой порядок байт)
+\item Данные вектора (размер × uint32\+\_\+t, сетевой порядок байт)
+\end{DoxyItemize}
+\item Сервер для каждого вектора\+:
+\begin{DoxyItemize}
+\item Вычисляет сумму с ограничением (см. \mbox{\hyperlink{classVectorProcessor_acd1afc48ea00177af36466af2e981bf2}{Vector\+Processor\+::sum\+Clamp}})
+\item Отправляет результат (int32\+\_\+t, сетевой порядок байт)
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{index_limitations}{}\doxysection{Ограничения}\label{index_limitations}
+
+\begin{DoxyItemize}
+\item Максимальное количество векторов на сессию\+: 100,000
+\item Максимальный размер одного вектора\+: 10,000,000 элементов
+\item Размер данных аутентификации\+: до 255 байт
+\item Сервер работает в однопоточном режиме
+\end{DoxyItemize}\hypertarget{index_dependencies}{}\doxysection{Зависимости}\label{index_dependencies}
+Boost.\+Program\+\_\+options -\/ для обработки командной строки
+
+Crypto++ -\/ для вычисления SHA224 хэшей
+
+Стандартная библиотека C++17 -\/ для базового функционала\hypertarget{index_links}{}\doxysection{Ссылки и дополнительная информация}\label{index_links}
+\mbox{\hyperlink{classNetworkServer}{Network\+Server}} -\/ Основной класс сервера
+
+\mbox{\hyperlink{classAuthHandler}{Auth\+Handler}} -\/ Обработчик аутентификации
+
+\mbox{\hyperlink{classVectorHandler}{Vector\+Handler}} -\/ Обработчик векторов
+
+\mbox{\hyperlink{classLogger}{Logger}} -\/ Система логирования
+
+Network\+Utils -\/ Сетевые утилиты
+
+\begin{DoxyNote}{Заметки}
+Для работы сервера требуется файл базы данных клиентов в формате \char`\"{}логин\+:пароль\char`\"{} 
+\end{DoxyNote}
+\begin{DoxyWarning}{Предупреждения}
+Сервер не предназначен для обработки крайне больших векторов (\texorpdfstring{$>$}{>}10$^\wedge$7 элементов) 
+\end{DoxyWarning}
+\begin{DoxySeeAlso}{См. также}
+\mbox{\hyperlink{classVectorProcessor_acd1afc48ea00177af36466af2e981bf2}{Vector\+Processor\+::sum\+Clamp()}} для подробностей об алгоритме суммирования 
+\end{DoxySeeAlso}

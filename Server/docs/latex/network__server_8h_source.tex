@@ -1,0 +1,40 @@
+\hypertarget{network__server_8h_source}{}\doxysection{network\+\_\+server.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef NETWORK\_SERVER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define NETWORK\_SERVER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}server\_params.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <atomic>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classLogger}{Logger}};}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{classAuthDB}{AuthDB}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{classNetworkServer}{NetworkServer}} \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{classNetworkServer_a64205f9313c197ff85abc5204d0238ed}{NetworkServer}}(\textcolor{keyword}{const} \mbox{\hyperlink{structServerParams}{ServerParams}}\& p, \mbox{\hyperlink{classLogger}{Logger}}\& lg, \mbox{\hyperlink{classAuthDB}{AuthDB}}\& a);}
+\DoxyCodeLine{25     }
+\DoxyCodeLine{29     \mbox{\hyperlink{classNetworkServer_a450382ee444f54b8d238f161d1514cff}{\string~NetworkServer}}();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetworkServer_ae9a3ec5c90111aa30caa44dfe4e653fb}{run}}();}
+\DoxyCodeLine{35     }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetworkServer_a254c5949ae09d858fb9779755b82c722}{requestStop}}();}
+\DoxyCodeLine{40     }
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classNetworkServer_ac921e4fa355b571a5dc2eaa96228bc07}{isRunning}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{private}:}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetworkServer_aeb4f94bd78cc05ff5b564ce811b950fc}{createSocket}}();}
+\DoxyCodeLine{53     }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{classNetworkServer_ac9fe7324108332ae15fc36b0453360be}{serveClient}}(\textcolor{keywordtype}{int} client\_fd);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} \mbox{\hyperlink{classNetworkServer_a5fc126190e75afed1ec2bfb1d823a72e}{listen\_fd}} = -\/1;              }
+\DoxyCodeLine{61     \mbox{\hyperlink{structServerParams}{ServerParams}} \mbox{\hyperlink{classNetworkServer_aae6f217ff47f4c621720bec99c79fcdc}{params}};             }
+\DoxyCodeLine{62     \mbox{\hyperlink{classLogger}{Logger}}\& \mbox{\hyperlink{classNetworkServer_ac801161afc822bc9ad03d6070c9e0684}{logger}};                  }
+\DoxyCodeLine{63     \mbox{\hyperlink{classAuthDB}{AuthDB}}\& \mbox{\hyperlink{classNetworkServer_aba19037db98c33135ac1448343e4b0db}{auth}};                    }
+\DoxyCodeLine{64     std::atomic<bool> \mbox{\hyperlink{classNetworkServer_a0e2bba04007ab3075238291471d28538}{running}}\{\textcolor{keyword}{true}\}; }
+\DoxyCodeLine{65 \};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,4 @@
+<map id="VectorHandler" name="VectorHandler">
+<area shape="rect" id="node1" title="Класс для обработки векторных запросов от клиентов" alt="" coords="5,95,120,121"/>
+<area shape="rect" id="node2" href="$classLogger.html" title="Класс для потокобезопасного логирования в файл" alt="" coords="29,5,96,32"/>
+</map>
