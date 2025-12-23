@@ -56,19 +56,26 @@ bool AuthHandler::authenticate(int client_fd, std::string& out_login) {
 
 bool AuthHandler::parseAuthData(const std::string& data, std::string& login, 
                                std::string& salt_hex, std::string& hash_hex) {
+    // Проверяем, что строка содержит хотя бы 72 символа
     if(data.length() < 72) {
         logger_.error("Auth data too short: " + std::to_string(data.length()) + " chars");
         return false;
     }
     
-    // Последние 72 символа должны быть hex
+    // Разделяем: все кроме последних 72 символов - логин
+    login = data.substr(0, data.length() - 72);
+    
+    // Последние 72 символа - hex данные
     std::string hex_part = data.substr(data.length() - 72);
+    
+    // Проверяем, что hex_part действительно hex
     if(!NetworkUtils::isValidHex(hex_part)) {
         logger_.error("Last 72 chars are not valid hex: " + hex_part);
         return false;
     }
     
-    login = data.substr(0, data.length() - 72);
+    // Первые 16 символов hex_part - соль
+    // Остальные 56 - хэш
     salt_hex = hex_part.substr(0, 16);
     hash_hex = hex_part.substr(16, 56);
     
